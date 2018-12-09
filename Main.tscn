@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SonClaus/SonClaus.gd" type="Script" id=1]
+[ext_resource path="res://SonClaus/sonTemp2.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 30.0
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 4 )
+
+[node name="Node" type="Node" index="0"]
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="." index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D" index="0"]
+
+position = Vector2( 208, -31.96 )
+scale = Vector2( 1, 1.18359 )
+build_mode = 0
+polygon = PoolVector2Array( 80, 419.029, -96, 419.029, -96, 513.656, 560, 513.656, 560, 419.029, 528, 432.547, 496, 446.065, 416, 459.583, 352, 459.583, 240, 446.065, 160, 432.547 )
+
+[node name="SonClaus" type="KinematicBody2D" parent="." index="1"]
+
+position = Vector2( 336, 352 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="SonClaus" index="0"]
+
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SonClaus" index="1"]
+
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="OnFloor" type="Area2D" parent="SonClaus" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SonClaus/OnFloor" index="0"]
+
+position = Vector2( 0, 32 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="SonClaus/OnFloor" to="SonClaus" method="_on_OnFloor_body_entered"]
+
+[connection signal="body_exited" from="SonClaus/OnFloor" to="SonClaus" method="_on_OnFloor_body_exited"]
+
+
