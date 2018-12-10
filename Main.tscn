@@ -21,12 +21,28 @@ bounce = 0.0
 position = Vector2( 208, -31.96 )
 scale = Vector2( 1, 1.18359 )
 build_mode = 0
-polygon = PoolVector2Array( 80, 419.029, -96, 419.029, -96, 513.656, 560, 513.656, 560, 419.029, 528, 432.547, 496, 446.065, 416, 459.583, 352, 459.583, 240, 446.065, 160, 432.547 )
+polygon = PoolVector2Array( 80, 419.029, -96, 419.029, -96, 513.656, 1408, 513.656, 1408, 81.0751, 1232, 81.0751, 1232, 324.402, 1136, 324.402, 928, 351.438, 928, 419.029, 528, 419.029, 480, 419.029, 416, 432.547, 352, 446.065, 240, 446.065, 160, 432.547 )
 
 [node name="SonClaus" parent="." index="1" instance=ExtResource( 1 )]
 
 [node name="Barril" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 192, 448 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1056, 288, 928, 288, 928, 256, 832, 256, 832, 208, 688, 208, 688, 336, 1056, 336 )
 
 

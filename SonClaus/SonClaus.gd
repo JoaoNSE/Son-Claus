@@ -134,10 +134,12 @@ func _on_OnFloor_body_exited(body):
 func to_left():
 	sprite.flip_h = true
 	arma.rotation = PI
+	$Pivot.rotation = PI
 	
 func to_right():
 	sprite.flip_h = false
 	arma.rotation = 0
+	$Pivot.rotation = 0
 
 
 func _on_Arma_Area_body_entered(body):
