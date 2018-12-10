@@ -16,32 +16,32 @@ const JUMP_LOW_MULT = 2.0
 
 const SIDING_CHANGE_SPEED = 10
 const BULLET_VELOCITY = 1000
-const SHOOT_TIME_SHOW_WEAPON = 0.2
+const ATTACK_TIME_ANIM = 0.5
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 0.4
 
 var linear_vel = Vector2()
 var onair_time = 0 #
 var on_floor = false
-var shoot_time=99999 #time since last shot
+var attack_time=99999
 
 var dash_time = 0
 var dash_cool_time = 0
 var dashing = false
 var can_dash = true
 
-
-
 var anim=""
 
 #cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
+onready var arma = $Arma
 
 func _physics_process(delta):
 	#increment counters
 
 	dash_time += delta
 	dash_cool_time += delta
+	attack_time += delta
 
 	### MOVEMENT ###
 
@@ -82,7 +82,7 @@ func _physics_process(delta):
 	linear_vel.x = lerp(linear_vel.x, target_speed, ACCELERATION)
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
-		linear_vel.x += DASH_SPD * sign(sprite.scale.x)
+		linear_vel.x += DASH_SPD * sign(target_speed)
 		dashing = true
 		dash_time = 0
 		dash_cool_time = 0
@@ -94,21 +94,34 @@ func _physics_process(delta):
 	if dash_cool_time > DASH_COOLDOWN:
 		can_dash = true
 		
+	
+	if Input.is_action_pressed("attack") and attack_time >= 0.6:
+		attack_time = 0
 
 	##ANIMTATION
+	
+	var new_anim = "idle"
 
 	if on_floor:
 		if linear_vel.x < -SIDING_CHANGE_SPEED:
-			sprite.scale.x = toNeg(sprite.scale.x)
+			to_left()
 			
 		if linear_vel.x > SIDING_CHANGE_SPEED:
-			sprite.scale.x = toPos(sprite.scale.x)
+			to_right()
 			
 	else:
 		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-			sprite.scale.x = toNeg(sprite.scale.x)
+			to_left()
 		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
-			sprite.scale.x = toPos(sprite.scale.x)
+			to_right()
+			
+			
+	if attack_time < ATTACK_TIME_ANIM:
+		new_anim = "attack"
+		
+	if new_anim != anim:
+		anim = new_anim
+		$anim.play(anim)
 
 func _on_OnFloor_body_entered(body):
 	if body != self:
@@ -118,14 +131,15 @@ func _on_OnFloor_body_exited(body):
 	if body != self:
 		on_floor = false
 
-func toPos(n):
-	if n < 0:
-		return n*-1
-	else:
-		return n
-		
-func toNeg(n):
-	if n > 0:
-		return n*-1
-	else:
-		return n
+func to_left():
+	sprite.flip_h = true
+	arma.rotation = PI
+	
+func to_right():
+	sprite.flip_h = false
+	arma.rotation = 0
+
+
+func _on_Arma_Area_body_entered(body):
+	if body.is_in_group("Atacavel"):
+		body.dano()
