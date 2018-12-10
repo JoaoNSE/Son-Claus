@@ -7,6 +7,8 @@ const MIN_ONAIR_TIME = 0.1
 const WALK_SPEED = 500 # pixels/sec
 const ACCELERATION = 0.2
 
+const DASH_SPD = 3000
+
 #Jumps
 const JUMP_SPEED = 650
 const JUMP_FALL_MULT = 2.5
@@ -15,11 +17,20 @@ const JUMP_LOW_MULT = 2.0
 const SIDING_CHANGE_SPEED = 10
 const BULLET_VELOCITY = 1000
 const SHOOT_TIME_SHOW_WEAPON = 0.2
+const DASH_DURATION = 0.2
+const DASH_COOLDOWN = 0.4
 
 var linear_vel = Vector2()
 var onair_time = 0 #
 var on_floor = false
 var shoot_time=99999 #time since last shot
+
+var dash_time = 0
+var dash_cool_time = 0
+var dashing = false
+var can_dash = true
+
+
 
 var anim=""
 
@@ -29,22 +40,25 @@ onready var sprite = $Sprite
 func _physics_process(delta):
 	#increment counters
 
-	onair_time += delta
-	shoot_time += delta
+	dash_time += delta
+	dash_cool_time += delta
 
 	### MOVEMENT ###
 
 	# Apply Gravity
-	linear_vel += delta * GRAVITY_VEC
-	
-	# Move and Slide
-	#linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
-	
-	if linear_vel.y < 0:
-		linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_FALL_MULT - 1) * delta
-	elif linear_vel.y > 0 and !Input.is_action_pressed("jump"):
-		linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_LOW_MULT - 1) * delta
+	if !dashing:
+		linear_vel += delta * GRAVITY_VEC
 		
+		# Move and Slide
+		#linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
+		
+		if linear_vel.y < 0:
+			linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_FALL_MULT - 1) * delta
+		elif linear_vel.y > 0 and !Input.is_action_pressed("jump"):
+			linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_LOW_MULT - 1) * delta
+	
+	if dashing:
+		linear_vel.y = 0
 	#linear_vel += delta * GRAVITY_VEC
 	linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	
@@ -66,6 +80,20 @@ func _physics_process(delta):
 
 	target_speed *= WALK_SPEED
 	linear_vel.x = lerp(linear_vel.x, target_speed, ACCELERATION)
+	
+	if Input.is_action_just_pressed("dash") and can_dash:
+		linear_vel.x += DASH_SPD * sign(sprite.scale.x)
+		dashing = true
+		dash_time = 0
+		dash_cool_time = 0
+		can_dash = false
+		
+	if dash_time > DASH_DURATION:
+		dashing = false
+	
+	if dash_cool_time > DASH_COOLDOWN:
+		can_dash = true
+		
 
 	##ANIMTATION
 
@@ -83,10 +111,12 @@ func _physics_process(delta):
 			sprite.scale.x = toPos(sprite.scale.x)
 
 func _on_OnFloor_body_entered(body):
-	on_floor = true
+	if body != self:
+		on_floor = true
 
 func _on_OnFloor_body_exited(body):
-	on_floor = false
+	if body != self:
+		on_floor = false
 
 func toPos(n):
 	if n < 0:
