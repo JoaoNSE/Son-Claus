@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://House/wall 1.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="muro vermelho" type="Sprite" parent="." index="0"]
+
+position = Vector2( -688, 272 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 112, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="muro vermelho2" type="Sprite" parent="." index="1"]
+
+position = Vector2( -656, 272 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 112, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="muro vermelho3" type="Sprite" parent="." index="2"]
+
+position = Vector2( -688, 304 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 128, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="muro vermelho4" type="Sprite" parent="." index="3"]
+
+position = Vector2( -656, 304 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 128, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+
