@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SonClaus/SonClaus.gd" type="Script" id=1]
 [ext_resource path="res://SonClaus/sonTemp2.png" type="Texture" id=2]
@@ -8,11 +8,6 @@
 
 custom_solver_bias = 0.0
 radius = 30.0
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 16, 4 )
 
 [sub_resource type="Animation" id=4]
 
@@ -93,7 +88,7 @@ step = 0.1
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -116,24 +111,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="OnFloor" type="Area2D" parent="." index="2"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OnFloor" index="0"]
-
-position = Vector2( 0, 32 )
-shape = SubResource( 3 )
-
-[node name="anim" type="AnimationPlayer" parent="." index="3"]
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -144,7 +122,7 @@ anims/attack = SubResource( 4 )
 anims/idle = SubResource( 5 )
 blend_times = [  ]
 
-[node name="Arma" type="Node2D" parent="." index="4"]
+[node name="Arma" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -175,8 +153,9 @@ _sections_unfolded = [ "Transform" ]
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Pivot" type="Position2D" parent="." index="5"]
+[node name="Pivot" type="Position2D" parent="." index="4"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
@@ -210,9 +189,23 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Editor", "Smoothing" ]
 
-[connection signal="body_entered" from="OnFloor" to="." method="_on_OnFloor_body_entered"]
+[node name="Feet1" type="RayCast2D" parent="." index="5"]
 
-[connection signal="body_exited" from="OnFloor" to="." method="_on_OnFloor_body_exited"]
+position = Vector2( 10, 28 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 5 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="Feet2" type="RayCast2D" parent="." index="6"]
+
+position = Vector2( -10, 28 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_body_entered"]
 

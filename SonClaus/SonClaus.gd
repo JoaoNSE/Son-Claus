@@ -39,6 +39,8 @@ var anim=""
 #cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
 onready var arma = $Arma
+onready var feet1 = $Feet1
+onready var feet2 = $Feet2
 
 func _physics_process(delta):
 	#increment counters
@@ -47,6 +49,9 @@ func _physics_process(delta):
 	dash_cool_time += delta
 	attack_time += delta
 	knockback_timer += delta
+	
+	#detecting floor
+	on_floor = feet1.is_colliding() or feet2.is_colliding()
 
 	### MOVEMENT ###
 	# Apply Atrito
@@ -156,14 +161,6 @@ func knockBack(dir):
 	dash_time = 0
 	dash_cool_time = DASH_COOLDOWN
 	knockback_timer = 0
-
-func _on_OnFloor_body_entered(body):
-	if body != self:
-		on_floor = true
-
-func _on_OnFloor_body_exited(body):
-	if body != self:
-		on_floor = false
 
 func to_left():
 	sprite.flip_h = true

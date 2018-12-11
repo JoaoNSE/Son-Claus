@@ -1,30 +1,26 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=1]
-[ext_resource path="res://MapLoop.gd" type="Script" id=2]
-[ext_resource path="res://House/HouseTileTemp.tres" type="TileSet" id=3]
-[ext_resource path="res://House/ParedeTemp.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/KnockTest.gd" type="Script" id=6]
+[ext_resource path="res://MapLoop.gd" type="Script" id=1]
+[ext_resource path="res://House/HouseTileTemp.tres" type="TileSet" id=2]
+[ext_resource path="res://House/ParedeTemp.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/KnockTest.gd" type="Script" id=5]
+[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 20.0
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
-[node name="SonClaus" parent="." index="0" instance=ExtResource( 1 )]
-
-position = Vector2( -464, 384 )
-
-[node name="Mapa1" type="Node2D" parent="." index="1" groups=[
+[node name="Mapa1" type="Node2D" parent="." index="0" groups=[
 "Mapa",
 ]]
 
 editor/display_folded = true
 position = Vector2( -208, 32 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="Casa" type="Node2D" parent="Mapa1" index="0"]
 
@@ -38,7 +34,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="TileMap" type="TileMap" parent="Mapa1/Casa/Background" index="0"]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -64,66 +60,66 @@ editor/display_folded = true
 
 position = Vector2( -240, 144 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Parede8" type="Sprite" parent="Mapa1/Casa/Front" index="1"]
 
 position = Vector2( -624, 144 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Parede9" type="Sprite" parent="Mapa1/Casa/Front" index="2"]
 
 position = Vector2( -624, 272 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Parede10" type="Sprite" parent="Mapa1/Casa/Front" index="3"]
 
 position = Vector2( -624, 400 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Parede3" type="Sprite" parent="Mapa1/Casa/Front" index="4"]
 
 position = Vector2( -304, 112 )
 scale = Vector2( 0.5, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Parede4" type="Sprite" parent="Mapa1/Casa/Front" index="5"]
 
 position = Vector2( -368, 112 )
 scale = Vector2( 0.5, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Parede5" type="Sprite" parent="Mapa1/Casa/Front" index="6"]
 
 position = Vector2( -432, 112 )
 scale = Vector2( 0.5, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Parede6" type="Sprite" parent="Mapa1/Casa/Front" index="7"]
 
 position = Vector2( -496, 112 )
 scale = Vector2( 0.5, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Parede7" type="Sprite" parent="Mapa1/Casa/Front" index="8"]
 
 position = Vector2( -560, 112 )
 scale = Vector2( 0.5, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Parede2" type="Sprite" parent="Mapa1/Casa/Front" index="9"]
 
 position = Vector2( -240, 272 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="KinematicBody2D" type="StaticBody2D" parent="Mapa1" index="1"]
 
@@ -144,7 +140,7 @@ scale = Vector2( 1, 1.18359 )
 build_mode = 0
 polygon = PoolVector2Array( 80, 419.029, -1136, 419.029, -1136, 513.656, 1472, 513.656, 1472, 419.029, 1472, 364.956, 1376, 364.956, 1376, 283.847, 1232, 283.847, 1232, 324.402, 1136, 324.402, 928, 351.438, 928, 419.029, 528, 419.029, 480, 419.029, 416, 432.547, 352, 446.065, 240, 446.065, 160, 432.547 )
 
-[node name="Barril" parent="Mapa1" index="2" instance=ExtResource( 5 )]
+[node name="Barril" parent="Mapa1" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 1114, 448 )
 _sections_unfolded = [ "Transform" ]
@@ -178,7 +174,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -199,18 +195,13 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 2608, 464 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Visibility" type="VisibilityNotifier2D" parent="Mapa1" index="7"]
-
-position = Vector2( 0, 464 )
-rect = Rect2( 0, -10, 2608, 20 )
-
-[node name="Mapa2" type="Node2D" parent="." index="2" groups=[
+[node name="Mapa2" type="Node2D" parent="." index="1" groups=[
 "Mapa",
 ]]
 
 editor/display_folded = true
 position = Vector2( -880, 496 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Mapa2" index="0"]
@@ -236,9 +227,9 @@ polygon = PoolVector2Array( -938, 464, -938, 576, -1232, 576, -1610, 576, -1610,
 
 position = Vector2( 672, 0 )
 
-[node name="Visibility" type="VisibilityNotifier2D" parent="Mapa2" index="3"]
+[node name="SonClaus" parent="." index="2" instance=ExtResource( 6 )]
 
-rect = Rect2( 0, -10, 672, 20 )
+position = Vector2( -464, 384 )
 
 [connection signal="body_entered" from="Mapa1/Area2D" to="Mapa1/Area2D" method="_on_Area2D_body_entered"]
 
