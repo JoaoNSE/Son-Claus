@@ -12,10 +12,10 @@
 custom_solver_bias = 0.0
 radius = 20.0
 
-[node name="Fase1" type="Node" index="0"]
+[node name="Fase1" type="Node"]
 
 script = ExtResource( 1 )
-tempo_restante = 10
+tempo_restante = 2
 
 [node name="Mapa1" type="Node2D" parent="." index="0" groups=[
 "Mapa",

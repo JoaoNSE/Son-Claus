@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Cenas/GameOver.gd" type="Script" id=1]
 
-[node name="CenterContainer" type="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -24,9 +24,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 474.0
-margin_top = 284.0
+margin_top = 272.0
 margin_right = 550.0
-margin_bottom = 316.0
+margin_bottom = 328.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -77,5 +77,31 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Restart" type="Button" parent="VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 76.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "RESTART"
+flat = false
+align = 1
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 
 
