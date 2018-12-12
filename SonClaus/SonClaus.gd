@@ -24,6 +24,7 @@ const KNOCKBACK_DURATION = 2
 var linear_vel = Vector2()
 var onair_time = 0 #
 var on_floor = false
+var on_wall = false
 var attack_time=99999
 
 var dash_time = 0
@@ -41,6 +42,8 @@ onready var sprite = $Sprite
 onready var arma = $Arma
 onready var feet1 = $Feet1
 onready var feet2 = $Feet2
+onready var wall1 = $Pivot/Wall1
+onready var wall2 = $Pivot/Wall2
 
 func _physics_process(delta):
 	#increment counters
@@ -52,6 +55,7 @@ func _physics_process(delta):
 	
 	#detecting floor
 	on_floor = feet1.is_colliding() or feet2.is_colliding()
+	on_wall = wall2.is_colliding() or wall2.is_colliding()
 
 	### MOVEMENT ###
 	# Apply Atrito
@@ -63,15 +67,18 @@ func _physics_process(delta):
 
 	# Apply Gravity
 	if !dashing:
-		linear_vel += delta * GRAVITY_VEC
+		if !on_floor and on_wall and linear_vel.y >= 0:
+			linear_vel.y = delta * GRAVITY_VEC.y*8
+		else:
+			linear_vel += delta * GRAVITY_VEC
 		
 		# Move and Slide
 		#linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 		
 		if linear_vel.y < 0:
 			linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_FALL_MULT - 1) * delta
-		elif linear_vel.y > 0 and !Input.is_action_pressed("jump"):
-			linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_LOW_MULT - 1) * delta
+		#elif linear_vel.y > 0 and !Input.is_action_pressed("jump"):
+		#	linear_vel += Vector2(0, 1) * GRAVITY_VEC.y * (JUMP_LOW_MULT - 1) * delta
 	
 	if dashing:
 		linear_vel.y = 0
@@ -79,8 +86,12 @@ func _physics_process(delta):
 	linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	
 	# Jumping
-	if on_floor and can_move and Input.is_action_just_pressed("jump"):
-		linear_vel.y = -JUMP_SPEED
+	if can_move and Input.is_action_just_pressed("jump"):
+		if on_floor:
+			linear_vel.y = -JUMP_SPEED
+		elif on_wall:
+			linear_vel.y = -JUMP_SPEED
+			linear_vel.x = sign(int(sprite.flip_h)*2 - 1) * 2 * JUMP_SPEED
 		#$sound_jump.play()
 
 	### CONTROL ###

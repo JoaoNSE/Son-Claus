@@ -2,7 +2,7 @@
 
 [ext_resource path="res://PauseMenu/PauseMenu.gd" type="Script" id=1]
 
-[node name="PauseMenu" type="Control" index="0"]
+[node name="PauseMenu" type="Control"]
 
 pause_mode = 2
 anchor_left = 0.0

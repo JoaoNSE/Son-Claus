@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fase.gd" type="Script" id=1]
 [ext_resource path="res://MapLoop.gd" type="Script" id=2]
@@ -7,16 +7,56 @@
 [ext_resource path="res://Objects/KnockTest.gd" type="Script" id=5]
 [ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=6]
 [ext_resource path="res://PauseMenu/PauseMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Particles/Sprites/snow1.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 20.0
 
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 20, 20, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
 [node name="Fase1" type="Node"]
 
 script = ExtResource( 1 )
-tempo_restante = 15
+tempo_restante = 200
 
 [node name="Mapa1" type="Node2D" parent="." index="0" groups=[
 "Mapa",
@@ -227,12 +267,37 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="PauseMenu" parent="CanvasLayer" index="1" instance=ExtResource( 7 )]
 
+visible = false
+
 [node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="Particles2D" type="Particles2D" parent="." index="5"]
+
+position = Vector2( -992, 256 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Textures" ]
 
 [connection signal="body_entered" from="Mapa1/Area2D" to="Mapa1/Area2D" method="_on_Area2D_body_entered"]
 
