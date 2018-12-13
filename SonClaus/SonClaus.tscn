@@ -92,7 +92,7 @@ step = 0.1
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -180,7 +180,7 @@ limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 15.0
+smoothing_speed = 30.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.2

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arvore.png-32af7e1f2e4e270a40d5ffa557f04138.stex"
+path="res://.import/scene1-part1.png-937e7b5025b6bb07d33d5ea424d7d21a.stex"
 
 [deps]
 
-source_file="res://House/arvore.png"
-dest_files=[ "res://.import/arvore.png-32af7e1f2e4e270a40d5ffa557f04138.stex" ]
+source_file="res://Cutscenes/scene1-part1.png"
+dest_files=[ "res://.import/scene1-part1.png-937e7b5025b6bb07d33d5ea424d7d21a.stex" ]
 
 [params]
 
@@ -16,11 +16,11 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
-flags/anisotropic=true
+flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
