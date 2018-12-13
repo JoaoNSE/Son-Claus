@@ -64,11 +64,16 @@ func _physics_process(delta):
 			linear_vel.x -= 10
 		if linear_vel.x < 0:
 			linear_vel.x += 10
+			
+		
 
 	# Apply Gravity
 	if !dashing:
 		if !on_floor and on_wall and linear_vel.y >= 0:
 			linear_vel.y = delta * GRAVITY_VEC.y*8
+			# Apply force against the wall
+			if linear_vel.x == 0:
+				linear_vel.x += sign(int(sprite.flip_h)*2 - 1) * JUMP_SPEED
 		else:
 			linear_vel += delta * GRAVITY_VEC
 		
