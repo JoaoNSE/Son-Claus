@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fase.gd" type="Script" id=1]
 [ext_resource path="res://MapLoop.gd" type="Script" id=2]
 [ext_resource path="res://House/Casa1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/KnockTest.gd" type="Script" id=5]
-[ext_resource path="res://World/OutsideBackTile.tres" type="TileSet" id=6]
-[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=7]
-[ext_resource path="res://PauseMenu/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/KnockTest.gd" type="Script" id=4]
+[ext_resource path="res://World/OutsideBackTile.tres" type="TileSet" id=5]
+[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PauseMenu/PauseMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -32,6 +31,7 @@ position = Vector2( 672, 448 )
 
 [node name="KinematicBody2D" type="StaticBody2D" parent="Mapa1" index="1"]
 
+editor/display_folded = true
 position = Vector2( 928, 32 )
 input_pickable = false
 collision_layer = 1
@@ -69,12 +69,7 @@ build_mode = 0
 polygon = PoolVector2Array( 74, 446.1, -246, 446.1, -246, 527.21, 1482, 527.21, 1482, 419.064, 1482, 364.991, 1376, 364.956, 1376, 283.847, 1232, 283.847, 1232, 324.402, 1136, 324.402, 928, 351.438, 928, 419.029, 528, 419.029, 480, 419.029, 416, 432.547, 352, 446.065, 240, 446.065, 170, 446.1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Barril" parent="Mapa1" index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 1056, 384 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Mapa1" index="4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Mapa1" index="3"]
 
 editor/display_folded = true
 position = Vector2( 932, 0 )
@@ -93,7 +88,7 @@ position = Vector2( -4, -32 )
 build_mode = 0
 polygon = PoolVector2Array( 1056, 288, 928, 288, 928, 256, 832, 256, 832, 208, 688, 208, 688, 336, 1056, 336 )
 
-[node name="Area2D" type="Area2D" parent="Mapa1" index="5"]
+[node name="Area2D" type="Area2D" parent="Mapa1" index="4"]
 
 editor/display_folded = true
 position = Vector2( 1728, 416 )
@@ -104,7 +99,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -115,22 +110,22 @@ __meta__ = {
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Init" type="Position2D" parent="Mapa1" index="6"]
+[node name="Init" type="Position2D" parent="Mapa1" index="5"]
 
 position = Vector2( 0, 448 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="End" type="Position2D" parent="Mapa1" index="7"]
+[node name="End" type="Position2D" parent="Mapa1" index="6"]
 
 position = Vector2( 2624, 448 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="Mapa1" index="8"]
+[node name="TileMap" type="TileMap" parent="Mapa1" index="7"]
 
 position = Vector2( -6, 0 )
 z_index = -1
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 5 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -199,7 +194,7 @@ polygon = PoolVector2Array( -1600, 144, -1600, 144, -1600, -144, -1472, -144, -1
 
 position = Vector2( 1632, 0 )
 
-[node name="SonClaus" parent="." index="2" instance=ExtResource( 7 )]
+[node name="SonClaus" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( -464, 384 )
 
@@ -288,7 +283,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="PauseMenu" parent="CanvasLayer" index="1" instance=ExtResource( 8 )]
+[node name="PauseMenu" parent="CanvasLayer" index="1" instance=ExtResource( 7 )]
 
 visible = false
 

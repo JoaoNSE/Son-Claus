@@ -1,52 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://House/wall 1.png" type="Texture" id=1]
-[ext_resource path="res://House/WoodPlataform.png" type="Texture" id=2]
+[ext_resource path="res://House/WoodPlataform.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 8 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
-[node name="muro vermelho" type="Sprite" parent="." index="0"]
-
-position = Vector2( -152, 0 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 16, 112, 16, 16 )
-_sections_unfolded = [ "Region" ]
-
-[node name="muro vermelho2" type="Sprite" parent="." index="1"]
-
-position = Vector2( -120, 0 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 32, 112, 16, 16 )
-_sections_unfolded = [ "Region" ]
-
-[node name="muro vermelho3" type="Sprite" parent="." index="2"]
-
-position = Vector2( -152, 32 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 16, 128, 16, 16 )
-_sections_unfolded = [ "Region" ]
-
-[node name="muro vermelho4" type="Sprite" parent="." index="3"]
-
-position = Vector2( -120, 32 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 32, 128, 16, 16 )
-_sections_unfolded = [ "Region" ]
-
-[node name="WoodPlataform" type="Sprite" parent="." index="4"]
+[node name="WoodPlataform" type="Sprite" parent="." index="0"]
 
 editor/display_folded = true
 position = Vector2( -32, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
 _sections_unfolded = [ "Transform" ]
@@ -67,11 +34,11 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WoodPlataform2" type="Sprite" parent="." index="5"]
+[node name="WoodPlataform2" type="Sprite" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( 32, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
@@ -93,10 +60,10 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WoodPlataform3" type="Sprite" parent="." index="6"]
+[node name="WoodPlataform3" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
@@ -118,10 +85,10 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WoodPlataform4" type="Sprite" parent="." index="7"]
+[node name="WoodPlataform4" type="Sprite" parent="." index="3"]
 
 position = Vector2( 64, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 0, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]

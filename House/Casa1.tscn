@@ -174,17 +174,6 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 0, 32 )
 shape = SubResource( 1 )
 
-[node name="BadChild" type="Area2D" parent="." index="4"]
-
-position = Vector2( -32, -224 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
