@@ -5,7 +5,7 @@ extends CenterContainer
 # var b = "textvar"
 
 func _ready():
-	$VBoxContainer/Pontos.text = "PONTOS: " + str(gamestate.pontos)
+	$VBoxContainer/Pontos.text = "SCORE: " + str(gamestate.pontos)
 	$VBoxContainer/Restart.grab_focus()
 
 #func _process(delta):
@@ -15,4 +15,5 @@ func _ready():
 
 
 func _on_Restart_pressed():
+	gamestate.init()
 	get_tree().change_scene("res://Cenas/Menu.tscn")

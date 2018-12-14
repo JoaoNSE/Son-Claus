@@ -308,7 +308,6 @@ _sections_unfolded = [ "Transform" ]
 initial_pos = 0
 end_pos = 192
 speed = 100
-pontos = 1
 
 [connection signal="body_entered" from="Mapa1/Area2D" to="Mapa1/Area2D" method="_on_Area2D_body_entered"]
 

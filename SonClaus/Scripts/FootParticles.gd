@@ -14,6 +14,5 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
 func _on_FootParticlesTimer_timeout():
 	queue_free()

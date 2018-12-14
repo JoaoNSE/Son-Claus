@@ -51,6 +51,7 @@ onready var camera = $CameraOffset/Camera2D
 onready var cam_tween = $CameraOffset/Tween
 
 onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
+onready var breath_p = preload("res://SonClaus/BreathParticles.tscn")
 
 func _physics_process(delta):
 	#increment counters
@@ -219,6 +220,9 @@ func to_left():
 	sprite.flip_h = true
 	arma.rotation = PI
 	$Pivot.rotation = PI
+	if sign($Breath.position.x) >=0: 
+		$Breath.position.x *= -1
+	
 	
 	
 func to_right():
@@ -232,6 +236,8 @@ func to_right():
 	sprite.flip_h = false
 	arma.rotation = 0
 	$Pivot.rotation = 0
+	if sign($Breath.position.x) < 0: 
+		$Breath.position.x *= -1
 	
 
 func _on_Arma_Area_body_entered(body):
@@ -241,3 +247,13 @@ func _on_Arma_Area_body_entered(body):
 func _on_Arma_Area_area_entered(area):
 	if area.is_in_group("Atacavel"):
 		area.dano()
+		
+func _emit_breath():
+	var temp_p = breath_p.instance()
+	temp_p.position = $Breath.position
+	if sign(temp_p.position.x) >= 0:
+		temp_p.rotation = 0
+	else:
+		temp_p.rotation = PI
+	temp_p.emitting = true
+	$Breath.add_child(temp_p)

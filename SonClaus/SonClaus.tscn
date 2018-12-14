@@ -112,6 +112,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ ExtResource( 2 ) ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 0 ),
+"values": [ {
+"args": [  ],
+"method": "_emit_breath"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 
@@ -149,7 +163,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" groups=[
+[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -170,7 +184,7 @@ _sections_unfolded = [ "Transform" ]
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 32, 64 )
+region_rect = Rect2( 32, 0, 32, 64 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="Tween" type="Tween" parent="." index="2"]
@@ -196,6 +210,7 @@ blend_times = [  ]
 
 [node name="Arma" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Arma" index="0"]
@@ -350,6 +365,10 @@ exclude_parent = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[node name="Breath" type="Position2D" parent="." index="9"]
+
+position = Vector2( 5.98627, -5.53391 )
 
 [connection signal="area_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_area_entered"]
 
