@@ -4,6 +4,8 @@ const GRAVITY_VEC = Vector2(0, 900)
 const FLOOR_NORMAL = Vector2(0, -1)
 const SLOPE_SLIDE_STOP = 25.0
 const MIN_ONAIR_TIME = 0.1
+const CAM_SWITCH_TIME = 0.5
+const CAM_SMOOTH_SPEED = 10
 const WALK_SPEED = 500 # pixels/sec
 const ACCELERATION = 0.2
 
@@ -45,6 +47,8 @@ onready var feet1 = $Feet1
 onready var feet2 = $Feet2
 onready var wall1 = $Pivot/Wall1
 onready var wall2 = $Pivot/Wall2
+onready var camera = $CameraOffset/Camera2D
+onready var cam_tween = $CameraOffset/Tween
 
 onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 
@@ -92,6 +96,7 @@ func _physics_process(delta):
 	if dashing:
 		linear_vel.y = 0
 	#linear_vel += delta * GRAVITY_VEC
+	var temp_l_y = linear_vel.y
 	linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	
 	# Jumping
@@ -99,6 +104,7 @@ func _physics_process(delta):
 		if on_floor:
 			#pula pra cima
 			linear_vel.y = -JUMP_SPEED
+			#instancia fumacinha
 			var temp_p = foot_p.instance()
 			temp_p.position = Vector2(0, 32)
 			temp_p.emitting = true
@@ -116,14 +122,16 @@ func _physics_process(delta):
 	# Horizontal Movement
 	if can_move:
 		if Input.is_action_pressed("move_left"):
+			print(str(camera.smoothing_enabled))
 			target_speed += -1
 		if Input.is_action_pressed("move_right"):
+			print(str(camera.smoothing_enabled))
 			target_speed +=  1
 	
 		target_speed *= WALK_SPEED
 		
 		linear_vel.x = lerp(linear_vel.x, target_speed, ACCELERATION)
-	
+		
 	#DASH
 	if Input.is_action_just_pressed("dash") and can_dash and can_move:
 		linear_vel.x += DASH_SPD * sign(int(sprite.flip_h)*2 - 1)*-1
@@ -141,13 +149,20 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("attack") and attack_time >= 0.6 and can_move:
 		attack_time = 0
+		#cam_tween.interpolate_property($Pivot/CameraOffset, "position", position, Vector2(2000, 0), 10, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		#cam_tween.start() 
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		knockBack(-1)
 
 	##ANIMTATION
-	if on_floor and !p_on_floor and linear_vel.y > 5:
-		pass
+	#fumacinha quando cai
+	if on_floor and !p_on_floor and temp_l_y > 10:
+		#instancia fumacinha
+		var temp_p = foot_p.instance()
+		temp_p.position = Vector2(0, 32)
+		temp_p.emitting = true
+		add_child(temp_p)
 	p_on_floor = on_floor
 	
 	var new_anim = "idle"
@@ -160,10 +175,11 @@ func _physics_process(delta):
 	if on_floor and can_move:
 		if linear_vel.x < -SIDING_CHANGE_SPEED:
 			to_left()
-			new_anim = "running"
 			
 		if linear_vel.x > SIDING_CHANGE_SPEED:
 			to_right()
+			
+		if abs(linear_vel.x) > 100:
 			new_anim = "running"
 			
 	elif can_move:
@@ -197,14 +213,28 @@ func knockBack(dir):
 	knockback_timer = 0
 
 func to_left():
+	#mudar a camera
+	if !sprite.flip_h:
+		#$Pivot/CameraOffset.position = Vector2(0, 0)
+		cam_tween.interpolate_property($CameraOffset, "position", $CameraOffset.position, Vector2(-208, 0), CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		cam_tween.start()                                                        
 	sprite.flip_h = true
 	arma.rotation = PI
 	$Pivot.rotation = PI
 	
+	
 func to_right():
+	#mudar a camera
+	if sprite.flip_h:
+		#$Pivot/CameraOffset.position = Vector2(0, 0)
+		cam_tween.interpolate_property($CameraOffset, "position", $CameraOffset.position, Vector2(208, 0), CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		cam_tween.start()
+		  
+		#cam_switching_time = 0
 	sprite.flip_h = false
 	arma.rotation = 0
 	$Pivot.rotation = 0
+	
 
 
 func _on_Arma_Area_body_entered(body):

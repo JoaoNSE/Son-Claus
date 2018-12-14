@@ -19,8 +19,6 @@ func _ready():
 func dano():
 	var n = rand_range(0, 1)
 	var chance = get_chance()
-	print("Número: " + str(n))
-	print("Chance: " + str(chance))
 	if n <= chance:
 		var tm_chance = n*10/chance*10
 		var timeup = timeUP.instance()

@@ -148,7 +148,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" groups=[
+[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -170,9 +170,18 @@ _sections_unfolded = [ "Transform" ]
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 64 )
-_sections_unfolded = [ "Region", "Z Index" ]
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="anim" type="AnimationPlayer" parent="." index="2"]
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="anim" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = "idle"
@@ -184,7 +193,7 @@ anims/idle = SubResource( 3 )
 anims/running = SubResource( 5 )
 blend_times = [  ]
 
-[node name="Arma" type="Node2D" parent="." index="3"]
+[node name="Arma" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -216,19 +225,15 @@ _sections_unfolded = [ "Collision" ]
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Pivot" type="Position2D" parent="." index="4"]
-
-editor/display_folded = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
+[node name="CameraOffset" type="Position2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 208, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset" index="0"]
+[node name="Camera2D" type="Camera2D" parent="CameraOffset" index="0"]
 
+editor/display_folded = true
 anchor_mode = 1
 rotating = false
 current = true
@@ -240,8 +245,8 @@ limit_bottom = 10000000
 limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 30.0
+smoothing_enabled = false
+smoothing_speed = 10.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.2
@@ -253,7 +258,7 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Editor", "Smoothing" ]
 
-[node name="Particles2D" type="Particles2D" parent="Pivot/CameraOffset/Camera2D" index="0"]
+[node name="Particles2D" type="Particles2D" parent="CameraOffset/Camera2D" index="0"]
 
 emitting = true
 amount = 100
@@ -275,7 +280,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Textures", "Time" ]
 
-[node name="Particles2D2" type="Particles2D" parent="Pivot/CameraOffset/Camera2D" index="1"]
+[node name="Particles2D2" type="Particles2D" parent="CameraOffset/Camera2D" index="1"]
 
 emitting = true
 amount = 10
@@ -297,7 +302,21 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Textures", "Time" ]
 
-[node name="Wall1" type="RayCast2D" parent="Pivot" index="1"]
+[node name="Tween" type="Tween" parent="CameraOffset" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Pivot" type="Position2D" parent="." index="6"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall1" type="RayCast2D" parent="Pivot" index="0"]
 
 position = Vector2( 16, -16 )
 enabled = true
@@ -305,7 +324,7 @@ exclude_parent = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 1
 
-[node name="Wall2" type="RayCast2D" parent="Pivot" index="2"]
+[node name="Wall2" type="RayCast2D" parent="Pivot" index="1"]
 
 position = Vector2( 16, 16 )
 enabled = true
@@ -313,7 +332,7 @@ exclude_parent = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 1
 
-[node name="Feet1" type="RayCast2D" parent="." index="5"]
+[node name="Feet1" type="RayCast2D" parent="." index="7"]
 
 position = Vector2( 10, 28 )
 enabled = true
@@ -322,7 +341,7 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Feet2" type="RayCast2D" parent="." index="6"]
+[node name="Feet2" type="RayCast2D" parent="." index="8"]
 
 position = Vector2( -10, 28 )
 enabled = true
