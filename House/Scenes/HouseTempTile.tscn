@@ -1,21 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://House/Sprites/WoodPlataform.png" type="Texture" id=1]
 [ext_resource path="res://House/Sprites/Chamine.png" type="Texture" id=2]
 [ext_resource path="res://House/Sprites/TelhadoE.png" type="Texture" id=3]
 [ext_resource path="res://House/Sprites/TelhadoC.png" type="Texture" id=4]
 [ext_resource path="res://House/Sprites/TelhadoD.png" type="Texture" id=5]
-
-
-
-
+[ext_resource path="res://House/Sprites/WallFundo2.png" type="Texture" id=6]
+[ext_resource path="res://House/Sprites/wallFundo.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="WoodPlataform" type="Sprite" parent="." index="0"]
 
@@ -193,5 +191,77 @@ _sections_unfolded = [ "Transform" ]
 
 build_mode = 0
 polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, -16, -16 )
+
+[node name="WallFundo2" type="Sprite" parent="." index="8"]
+
+modulate = Color( 0.0756836, 0.605469, 0.0963783, 1 )
+position = Vector2( 352, 0 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="WallFundo3" type="Sprite" parent="." index="9"]
+
+modulate = Color( 0.0756836, 0.605469, 0.0963783, 1 )
+position = Vector2( 352, 32 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="WallFundo4" type="Sprite" parent="." index="10"]
+
+modulate = Color( 0.0756836, 0.605469, 0.0963783, 1 )
+position = Vector2( 384, 0 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="WallFundo5" type="Sprite" parent="." index="11"]
+
+modulate = Color( 0.0756836, 0.605469, 0.0963783, 1 )
+position = Vector2( 384, 32 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="wallFundo" type="Sprite" parent="." index="12"]
+
+modulate = Color( 1, 0.1875, 0.1875, 1 )
+position = Vector2( 448, 0 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="wallFundo2" type="Sprite" parent="." index="13"]
+
+modulate = Color( 1, 0.1875, 0.1875, 1 )
+position = Vector2( 448, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="wallFundo3" type="Sprite" parent="." index="14"]
+
+modulate = Color( 1, 0.1875, 0.1875, 1 )
+position = Vector2( 480, 0 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="wallFundo4" type="Sprite" parent="." index="15"]
+
+modulate = Color( 1, 0.1875, 0.1875, 1 )
+position = Vector2( 480, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Visibility" ]
 
 
