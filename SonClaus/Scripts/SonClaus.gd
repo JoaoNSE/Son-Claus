@@ -60,6 +60,7 @@ func _physics_process(delta):
 	dash_cool_time += delta
 	attack_time += delta
 	knockback_timer += delta
+	onair_time += delta
 	
 	#detecting floor
 	on_floor = feet1.is_colliding() or feet2.is_colliding()
@@ -110,6 +111,7 @@ func _physics_process(delta):
 			temp_p.position = Vector2(0, 32)
 			temp_p.emitting = true
 			add_child(temp_p)
+			onair_time = 0
 			
 		elif on_wall:
 			#pula pro lado
@@ -187,6 +189,12 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
 			to_right()
 			
+		if onair_time <= 0.1:
+			new_anim = "jump_start"
+		elif linear_vel.y < 0:
+			new_anim = "jumping"
+		if linear_vel.y > 0:
+			new_anim = "falling"
 			
 	if attack_time < ATTACK_TIME_ANIM:
 		new_anim = "attack"
