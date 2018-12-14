@@ -148,7 +148,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -218,6 +218,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Pivot" type="Position2D" parent="." index="4"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]

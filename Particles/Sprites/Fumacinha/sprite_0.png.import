@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sonTemp2.png-603532591fdc8f7e6cdd54afb975c543.stex"
+path="res://.import/sprite_0.png-8932cfa2e0c5430104bd91f2dbc3afa3.stex"
 
 [deps]
 
-source_file="res://SonClaus/sonTemp2.png"
-dest_files=[ "res://.import/sonTemp2.png-603532591fdc8f7e6cdd54afb975c543.stex" ]
+source_file="res://Particles/Sprites/Fumacinha/sprite_0.png"
+dest_files=[ "res://.import/sprite_0.png-8932cfa2e0c5430104bd91f2dbc3afa3.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

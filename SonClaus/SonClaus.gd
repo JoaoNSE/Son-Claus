@@ -24,6 +24,7 @@ const KNOCKBACK_DURATION = 2
 var linear_vel = Vector2()
 var onair_time = 0 #
 var on_floor = false
+var p_on_floor = false
 var on_wall = false
 var attack_time=99999
 
@@ -44,6 +45,8 @@ onready var feet1 = $Feet1
 onready var feet2 = $Feet2
 onready var wall1 = $Pivot/Wall1
 onready var wall2 = $Pivot/Wall2
+
+onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 
 func _physics_process(delta):
 	#increment counters
@@ -69,6 +72,7 @@ func _physics_process(delta):
 
 	# Apply Gravity
 	if !dashing:
+		#se tiver agarrando na parede
 		if !on_floor and on_wall and linear_vel.y >= 0:
 			linear_vel.y = delta * GRAVITY_VEC.y*8
 			# Apply force against the wall
@@ -93,8 +97,15 @@ func _physics_process(delta):
 	# Jumping
 	if can_move and Input.is_action_just_pressed("jump"):
 		if on_floor:
+			#pula pra cima
 			linear_vel.y = -JUMP_SPEED
+			var temp_p = foot_p.instance()
+			temp_p.position = Vector2(0, 32)
+			temp_p.emitting = true
+			add_child(temp_p)
+			
 		elif on_wall:
+			#pula pro lado
 			linear_vel.y = -JUMP_SPEED
 			linear_vel.x = sign(int(sprite.flip_h)*2 - 1) * 2 * JUMP_SPEED
 		#$sound_jump.play()
@@ -135,6 +146,9 @@ func _physics_process(delta):
 		knockBack(-1)
 
 	##ANIMTATION
+	if on_floor and !p_on_floor and linear_vel.y > 5:
+		pass
+	p_on_floor = on_floor
 	
 	var new_anim = "idle"
 	
@@ -165,6 +179,8 @@ func _physics_process(delta):
 	if new_anim != anim:
 		anim = new_anim
 		$anim.play(anim)
+		
+	
 
 #knocback recebe direção (-1, 1)
 func knockBack(dir):
@@ -194,3 +210,4 @@ func to_right():
 func _on_Arma_Area_body_entered(body):
 	if body.is_in_group("Atacavel"):
 		body.dano()
+
