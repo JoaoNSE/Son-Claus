@@ -9,10 +9,11 @@
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=7]
 [ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=8]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=6]
 
 custom_solver_bias = 0.0
-radius = 30.0
+radius = 12.0
+height = 40.0
 
 [sub_resource type="Animation" id=2]
 
@@ -148,7 +149,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -158,11 +159,11 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
@@ -196,6 +197,7 @@ blend_times = [  ]
 [node name="Arma" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
+visible = false
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Arma" index="0"]
@@ -313,24 +315,25 @@ playback/speed = 1.0
 
 [node name="Pivot" type="Position2D" parent="." index="6"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="RayCast2D" parent="Pivot" index="0"]
 
-position = Vector2( 16, -16 )
+position = Vector2( 12, -16 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 1
+cast_to = Vector2( 12, 0 )
+collision_mask = 1024
+_sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="RayCast2D" parent="Pivot" index="1"]
 
-position = Vector2( 16, 16 )
+position = Vector2( 12, 16 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 1
+cast_to = Vector2( 12, 0 )
+collision_mask = 1024
+_sections_unfolded = [ "Transform" ]
 
 [node name="Feet1" type="RayCast2D" parent="." index="7"]
 

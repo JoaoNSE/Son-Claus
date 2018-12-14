@@ -62,7 +62,7 @@ func _physics_process(delta):
 	
 	#detecting floor
 	on_floor = feet1.is_colliding() or feet2.is_colliding()
-	on_wall = wall2.is_colliding() or wall2.is_colliding()
+	on_wall = wall1.is_colliding() or wall2.is_colliding()
 
 	### MOVEMENT ###
 	# Apply Atrito
@@ -122,10 +122,8 @@ func _physics_process(delta):
 	# Horizontal Movement
 	if can_move:
 		if Input.is_action_pressed("move_left"):
-			print(str(camera.smoothing_enabled))
 			target_speed += -1
 		if Input.is_action_pressed("move_right"):
-			print(str(camera.smoothing_enabled))
 			target_speed +=  1
 	
 		target_speed *= WALK_SPEED

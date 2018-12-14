@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WoodPlataform.png-17b5f50293fb768d873aabf950abd30f.stex"
+path="res://.import/frente1_tmp.png-4f32eca5d6233ef466af7b2262e25984.stex"
 
 [deps]
 
-source_file="res://House/WoodPlataform.png"
-dest_files=[ "res://.import/WoodPlataform.png-17b5f50293fb768d873aabf950abd30f.stex" ]
+source_file="res://House/Sprites/frente1_tmp.png"
+dest_files=[ "res://.import/frente1_tmp.png-4f32eca5d6233ef466af7b2262e25984.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

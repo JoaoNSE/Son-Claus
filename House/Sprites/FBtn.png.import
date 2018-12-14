@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ParedeTemp.png-136cbeb25c6758eb3a482983d6d17420.stex"
+path="res://.import/FBtn.png-cce0eaae21259642be08676a302add8f.stex"
 
 [deps]
 
-source_file="res://House/ParedeTemp.png"
-dest_files=[ "res://.import/ParedeTemp.png-136cbeb25c6758eb3a482983d6d17420.stex" ]
+source_file="res://House/Sprites/FBtn.png"
+dest_files=[ "res://.import/FBtn.png-cce0eaae21259642be08676a302add8f.stex" ]
 
 [params]
 

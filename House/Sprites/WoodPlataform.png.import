@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arvore.png-32af7e1f2e4e270a40d5ffa557f04138.stex"
+path="res://.import/WoodPlataform.png-f86e0db1ccc71b13257bb106974d940a.stex"
 
 [deps]
 
-source_file="res://House/arvore.png"
-dest_files=[ "res://.import/arvore.png-32af7e1f2e4e270a40d5ffa557f04138.stex" ]
+source_file="res://House/Sprites/WoodPlataform.png"
+dest_files=[ "res://.import/WoodPlataform.png-f86e0db1ccc71b13257bb106974d940a.stex" ]
 
 [params]
 
@@ -18,9 +18,9 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
-flags/anisotropic=true
+flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false

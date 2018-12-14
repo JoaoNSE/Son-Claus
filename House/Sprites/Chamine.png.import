@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FBtn.png-932351137bcffc34275a7646212575c7.stex"
+path="res://.import/Chamine.png-31433a3cb260bc4195d2e265b660d44a.stex"
 
 [deps]
 
-source_file="res://House/FBtn.png"
-dest_files=[ "res://.import/FBtn.png-932351137bcffc34275a7646212575c7.stex" ]
+source_file="res://House/Sprites/Chamine.png"
+dest_files=[ "res://.import/Chamine.png-31433a3cb260bc4195d2e265b660d44a.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://House/Sprites/WoodPlataform.png" type="Texture" id=1]
+[ext_resource path="res://House/Sprites/Chamine.png" type="Texture" id=2]
+[ext_resource path="res://House/Sprites/TelhadoE.png" type="Texture" id=3]
+[ext_resource path="res://House/Sprites/TelhadoC.png" type="Texture" id=4]
+[ext_resource path="res://House/Sprites/TelhadoD.png" type="Texture" id=5]
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="WoodPlataform" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( -32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodPlataform" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WoodPlataform2" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WoodPlataform2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform2/StaticBody2D2" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WoodPlataform3" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="WoodPlataform3" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform3/StaticBody2D3" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WoodPlataform4" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="WoodPlataform4" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform4/StaticBody2D4" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Chamine" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0.851563, 0.429108, 0.429108, 1 )
+position = Vector2( 160, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="TelhadoE_Verde" type="Sprite" parent="." index="5"]
+
+editor/display_folded = true
+modulate = Color( 0.0546875, 1, 0, 1 )
+position = Vector2( 224, 0 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TelhadoE_Verde" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TelhadoE_Verde/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, -16, -16, 16, 16, 16 )
+
+[node name="TelhadoC_Verde" type="Sprite" parent="." index="6"]
+
+editor/display_folded = true
+modulate = Color( 0.195313, 1, 0, 1 )
+position = Vector2( 256, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TelhadoC_Verde" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TelhadoC_Verde/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, 16, -16 )
+
+[node name="TelhadoD_Verde" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+modulate = Color( 0.0509804, 1, 0, 1 )
+position = Vector2( 288, 0 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TelhadoD_Verde" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TelhadoD_Verde/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, -16, -16 )
+
+

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/progress_fill.png-3c6f8f42bdae4170e538fa0df15e1ed2.stex"
+path="res://.import/arvore.png-d9bce7c5c145d6ea075157baf720bb37.stex"
 
 [deps]
 
-source_file="res://House/progress_fill.png"
-dest_files=[ "res://.import/progress_fill.png-3c6f8f42bdae4170e538fa0df15e1ed2.stex" ]
+source_file="res://House/Sprites/arvore.png"
+dest_files=[ "res://.import/arvore.png-d9bce7c5c145d6ea075157baf720bb37.stex" ]
 
 [params]
 
@@ -16,11 +16,11 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false

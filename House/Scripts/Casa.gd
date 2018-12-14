@@ -19,9 +19,13 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
-		frente.hide()
+		#frente.hide()
+		frente.get_node("Tween").interpolate_property(frente, "modulate", frente.modulate, Color(frente.modulate.r, frente.modulate.g, frente.modulate.b, 0.0), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		frente.get_node("Tween").start()
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
-		frente.show()
+		#frente.show()
+		frente.get_node("Tween").interpolate_property(frente, "modulate", frente.modulate, Color(frente.modulate.r, frente.modulate.g, frente.modulate.b, 1.0), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		frente.get_node("Tween").start()

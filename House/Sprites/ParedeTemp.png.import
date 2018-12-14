@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/progress_under.png-d0da9d492cc609184bfd901539c9c301.stex"
+path="res://.import/ParedeTemp.png-36ad01a946a9d419366e032da3a2a0dd.stex"
 
 [deps]
 
-source_file="res://House/progress_under.png"
-dest_files=[ "res://.import/progress_under.png-d0da9d492cc609184bfd901539c9c301.stex" ]
+source_file="res://House/Sprites/ParedeTemp.png"
+dest_files=[ "res://.import/ParedeTemp.png-36ad01a946a9d419366e032da3a2a0dd.stex" ]
 
 [params]
 

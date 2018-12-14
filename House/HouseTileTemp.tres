@@ -1,16 +1,35 @@
-[gd_resource type="TileSet" load_steps=4 format=2]
+[gd_resource type="TileSet" load_steps=11 format=2]
 
-[ext_resource path="res://House/WoodPlataform.png" type="Texture" id=1]
+[ext_resource path="res://House/Sprites/TelhadoC.png" type="Texture" id=1]
+[ext_resource path="res://House/Sprites/TelhadoD.png" type="Texture" id=2]
+[ext_resource path="res://House/Sprites/WoodPlataform.png" type="Texture" id=3]
+[ext_resource path="res://House/Sprites/Chamine.png" type="Texture" id=4]
+[ext_resource path="res://House/Sprites/TelhadoE.png" type="Texture" id=5]
 
 [sub_resource type="StreamTexture" id=2]
 
 flags = 4
-load_path = "res://.import/wall 1.png-90446aa436730689140cc36486b467a3.stex"
+load_path = ""
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 8 )
+points = PoolVector2Array( 16, -16, 16, 16, -16, 16, -16, -16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, -16, 16, 16, -16, 16, -16, -16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 16, 16, -16, 16, 16, -16 )
 
 [resource]
 
@@ -51,7 +70,7 @@ extents = Vector2( 16, 8 )
 3/navigation_offset = Vector2( 8, 8 )
 3/shapes = [  ]
 4/name = "WoodPlataform"
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 3 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 32, 32 )
@@ -61,11 +80,11 @@ extents = Vector2( 16, 8 )
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 16, 24 )
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 5/name = "WoodPlataform2"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 3 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 32, 0, 32, 32 )
@@ -75,11 +94,11 @@ extents = Vector2( 16, 8 )
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 16, 24 )
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 6/name = "WoodPlataform3"
-6/texture = ExtResource( 1 )
+6/texture = ExtResource( 3 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 64, 0, 32, 32 )
@@ -89,11 +108,11 @@ extents = Vector2( 16, 8 )
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 16, 24 )
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 7/name = "WoodPlataform4"
-7/texture = ExtResource( 1 )
+7/texture = ExtResource( 3 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 96, 0, 32, 32 )
@@ -103,7 +122,58 @@ extents = Vector2( 16, 8 )
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 16, 24 )
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+8/name = "Chamine"
+8/texture = ExtResource( 4 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 0.851563, 0.429108, 0.429108, 1 )
+8/region = Rect2( 0, 0, 64, 64 )
+8/is_autotile = false
+8/occluder_offset = Vector2( 32, 32 )
+8/navigation_offset = Vector2( 32, 32 )
+8/shapes = [  ]
+9/name = "TelhadoE_Verde"
+9/texture = ExtResource( 5 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 0.0546875, 1, 0, 1 )
+9/region = Rect2( 0, 0, 32, 32 )
+9/is_autotile = false
+9/occluder_offset = Vector2( 16, 16 )
+9/navigation_offset = Vector2( 16, 16 )
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+10/name = "TelhadoC_Verde"
+10/texture = ExtResource( 1 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 0.195313, 1, 0, 1 )
+10/region = Rect2( 0, 0, 32, 32 )
+10/is_autotile = false
+10/occluder_offset = Vector2( 16, 16 )
+10/navigation_offset = Vector2( 16, 16 )
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+11/name = "TelhadoD_Verde"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 0.0509804, 1, 0, 1 )
+11/region = Rect2( 0, 0, 32, 32 )
+11/is_autotile = false
+11/occluder_offset = Vector2( 16, 16 )
+11/navigation_offset = Vector2( 16, 16 )
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 

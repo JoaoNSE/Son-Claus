@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fase.gd" type="Script" id=1]
 [ext_resource path="res://MapLoop.gd" type="Script" id=2]
-[ext_resource path="res://House/Casa1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://House/Scenes/Casa1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/KnockTest.gd" type="Script" id=4]
 [ext_resource path="res://World/OutsideBackTile.tres" type="TileSet" id=5]
 [ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=6]
@@ -14,7 +14,7 @@
 custom_solver_bias = 0.0
 radius = 20.0
 
-[node name="Fase" type="Node"]
+[node name="Fase" type="Node" index="0"]
 
 script = ExtResource( 1 )
 tempo_limite = 120
@@ -36,7 +36,7 @@ position = Vector2( 672, 448 )
 editor/display_folded = true
 position = Vector2( 928, 32 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
@@ -56,7 +56,7 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( 928, 32 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
@@ -76,7 +76,7 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( 932, 0 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
@@ -92,7 +92,6 @@ polygon = PoolVector2Array( 1056, 288, 928, 288, 928, 256, 832, 256, 832, 208, 6
 
 [node name="Area2D" type="Area2D" parent="Mapa1" index="4"]
 
-editor/display_folded = true
 position = Vector2( 1728, 416 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -163,12 +162,13 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( 1920, -496 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa2/StaticBody2D" index="0"]
 
@@ -181,12 +181,13 @@ polygon = PoolVector2Array( -928, 464, -928, 592, -1248, 592, -2560, 592, -2560,
 editor/display_folded = true
 position = Vector2( 1920, -496 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa2/StaticBody2D2" index="0"]
 
@@ -202,7 +203,7 @@ position = Vector2( 1632, 0 )
 
 [node name="SonClaus" parent="." index="2" instance=ExtResource( 7 )]
 
-position = Vector2( -464, 384 )
+position = Vector2( 352, 128 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
