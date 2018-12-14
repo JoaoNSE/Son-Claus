@@ -15,7 +15,7 @@
 custom_solver_bias = 0.0
 radius = 20.0
 
-[node name="Fase" type="Node"]
+[node name="Fase" type="Node" index="0"]
 
 script = ExtResource( 1 )
 tempo_limite = 120
@@ -24,7 +24,6 @@ tempo_limite = 120
 "Mapa",
 ]]
 
-editor/display_folded = true
 position = Vector2( -160, 64 )
 script = ExtResource( 2 )
 
@@ -204,7 +203,7 @@ position = Vector2( 1632, 0 )
 
 [node name="SonClaus" parent="." index="2" instance=ExtResource( 7 )]
 
-position = Vector2( 352, 128 )
+position = Vector2( 701.031, 194.482 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
