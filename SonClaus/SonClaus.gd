@@ -146,9 +146,11 @@ func _physics_process(delta):
 	if on_floor and can_move:
 		if linear_vel.x < -SIDING_CHANGE_SPEED:
 			to_left()
+			new_anim = "running"
 			
 		if linear_vel.x > SIDING_CHANGE_SPEED:
 			to_right()
+			new_anim = "running"
 			
 	elif can_move:
 		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):

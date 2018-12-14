@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://SonClaus/SonClaus.gd" type="Script" id=1]
 [ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=2]
-[ext_resource path="res://SonClaus/SonTemp.png" type="Texture" id=3]
-[ext_resource path="res://Particles/Neve1.tres" type="Material" id=4]
-[ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=5]
-[ext_resource path="res://Particles/Neve2.tres" type="Material" id=6]
-[ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=7]
+[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=3]
+[ext_resource path="res://SonClaus/SonTemp.png" type="Texture" id=4]
+[ext_resource path="res://Particles/Neve1.tres" type="Material" id=5]
+[ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=6]
+[ext_resource path="res://Particles/Neve2.tres" type="Material" id=7]
+[ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -98,6 +99,49 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Rect2( 0, 0, 32, 64 ), Rect2( 32, 0, 32, 64 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "running"
+length = 1.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 48, 0, 48, 64 ), Rect2( 96, 0, 48, 64 ), Rect2( 144, 0, 48, 64 ), Rect2( 0, 0, 48, 64 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -137,10 +181,12 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/attack = SubResource( 2 )
 anims/idle = SubResource( 3 )
+anims/running = SubResource( 5 )
 blend_times = [  ]
 
 [node name="Arma" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Arma" index="0"]
@@ -148,7 +194,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 0.75, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Arma_Area" type="Area2D" parent="Arma" index="1"]
@@ -221,8 +267,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = ExtResource( 4 )
-texture = ExtResource( 5 )
+process_material = ExtResource( 5 )
+texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -243,8 +289,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = ExtResource( 6 )
-texture = ExtResource( 7 )
+process_material = ExtResource( 7 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
