@@ -234,8 +234,10 @@ func to_right():
 	$Pivot.rotation = 0
 	
 
-
 func _on_Arma_Area_body_entered(body):
 	if body.is_in_group("Atacavel"):
 		body.dano()
 
+func _on_Arma_Area_area_entered(area):
+	if area.is_in_group("Atacavel"):
+		area.dano()

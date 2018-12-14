@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://SonClaus/SonClaus.gd" type="Script" id=1]
+[ext_resource path="res://SonClaus/Scripts/SonClaus.gd" type="Script" id=1]
 [ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=2]
 [ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=3]
 [ext_resource path="res://SonClaus/SonTemp.png" type="Texture" id=4]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=7]
 [ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=8]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 12.0
@@ -113,7 +113,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource_name = "running"
 length = 1.0
@@ -144,7 +144,7 @@ tracks/1/keys = {
 "values": [ Rect2( 48, 0, 48, 64 ), Rect2( 96, 0, 48, 64 ), Rect2( 144, 0, 48, 64 ), Rect2( 0, 0, 48, 64 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 24.0
@@ -163,7 +163,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
@@ -191,13 +191,11 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/attack = SubResource( 2 )
 anims/idle = SubResource( 3 )
-anims/running = SubResource( 5 )
+anims/running = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Arma" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-visible = false
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Arma" index="0"]
@@ -224,7 +222,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arma/Arma_Area" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraOffset" type="Position2D" parent="." index="5"]
@@ -352,6 +350,8 @@ exclude_parent = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="area_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_area_entered"]
 
 [connection signal="body_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_body_entered"]
 

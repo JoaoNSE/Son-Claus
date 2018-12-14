@@ -7,7 +7,7 @@ extends Node2D
 onready var player = get_parent().get_node("SonClaus")
 onready var init = $Init
 onready var end = $End
-onready var vis = $Visibility
+
 
 var oMap
 

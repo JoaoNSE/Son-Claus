@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/badChildTemp.png-4f0778e2f93971ea5dc1534a2b810e04.stex"
+path="res://.import/batFlap-0.png-21e27d00c619028faf7644a2f49c1fb8.stex"
 
 [deps]
 
-source_file="res://BadChild/badChildTemp.png"
-dest_files=[ "res://.import/badChildTemp.png-4f0778e2f93971ea5dc1534a2b810e04.stex" ]
+source_file="res://Enemies/Bat/batFlap-0.png"
+dest_files=[ "res://.import/batFlap-0.png-21e27d00c619028faf7644a2f49c1fb8.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
