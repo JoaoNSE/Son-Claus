@@ -14,7 +14,7 @@
 custom_solver_bias = 0.0
 radius = 20.0
 
-[node name="Fase" type="Node"]
+[node name="Fase" type="Node" index="0"]
 
 script = ExtResource( 1 )
 tempo_limite = 120

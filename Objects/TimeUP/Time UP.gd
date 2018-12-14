@@ -24,7 +24,7 @@ func _ready():
 	
 func _process(delta):
 	tempo += delta
-	position.y = base_y + sin(tempo)
+	position.y = base_y + sin(tempo*2) * 5
 
 func set_rect(m):
 	n = m
