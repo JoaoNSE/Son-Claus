@@ -6,7 +6,7 @@
 
 custom_solver_bias = 0.0
 radius = 12.0
-height = 20.0
+height = 32.0
 
 [node name="Barril" type="KinematicBody2D" groups=[
 "Atacavel",
@@ -17,6 +17,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -28,7 +29,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 48, 48 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
