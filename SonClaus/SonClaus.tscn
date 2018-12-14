@@ -8,7 +8,7 @@
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=6]
 [ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 30.0
@@ -104,7 +104,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 24.0
 
-[node name="SonClaus" type="KinematicBody2D" groups=[
+[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -118,7 +118,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
@@ -141,7 +141,6 @@ blend_times = [  ]
 
 [node name="Arma" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Arma" index="0"]
@@ -161,9 +160,10 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 monitoring = false
+collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arma/Arma_Area" index="0"]
 
@@ -172,11 +172,11 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Pivot" type="Position2D" parent="." index="4"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
 
+editor/display_folded = true
 position = Vector2( 208, 0 )
 _sections_unfolded = [ "Transform" ]
 

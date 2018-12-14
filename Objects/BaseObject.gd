@@ -35,7 +35,7 @@ func dano():
 		elif tm_chance > 90:
 			m = 15
 		timeup.set_rect(m)
-		queue_free()
+	queue_free()
 	
 
 func get_chance():

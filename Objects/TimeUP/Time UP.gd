@@ -14,11 +14,13 @@ var tempo = 0
 var base_y = 0
 
 onready var sprite = $Sprite
+var can_catch = true
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	set_process(true)
+	$Timer.wait_time = $Particles2D.lifetime
 	
 func _process(delta):
 	tempo += delta
@@ -36,7 +38,10 @@ func set_rect(m):
 		
 func set_n():
 	get_tree().root.get_node("Fase").adiciona_tempo(n)
-	queue_free()
+	$Sprite.queue_free()
+	$Timer.start()
+	$Particles2D.emitting = true
+	can_catch = false
 	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -45,5 +50,11 @@ func set_n():
 
 
 func _on_Time_UP_body_entered(body):
+	if !can_catch:
+		return
 	if body.is_in_group("Player"):
 		set_n()
+
+
+func _on_Timer_timeout():
+	queue_free()
