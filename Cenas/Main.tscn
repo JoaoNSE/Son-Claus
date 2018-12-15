@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fase.gd" type="Script" id=1]
 [ext_resource path="res://MapLoop.gd" type="Script" id=2]
@@ -6,10 +6,9 @@
 [ext_resource path="res://Objects/KnockTest.gd" type="Script" id=4]
 [ext_resource path="res://World/OutsideFrontTile.tres" type="TileSet" id=5]
 [ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/ChãoDeFora.tscn" type="PackedScene" id=7]
-[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=8]
-[ext_resource path="res://PauseMenu/PauseMenu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=7]
+[ext_resource path="res://PauseMenu/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -25,53 +24,14 @@ tempo_limite = 120
 "Mapa",
 ]]
 
-position = Vector2( -160, 64 )
+position = Vector2( -163.795, 64 )
 script = ExtResource( 2 )
 
 [node name="Casa" parent="Mapa1" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 672, 448 )
 
-[node name="KinematicBody2D2" type="StaticBody2D" parent="Mapa1" index="1"]
-
-editor/display_folded = true
-position = Vector2( 928, 32 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa1/KinematicBody2D2" index="0"]
-
-position = Vector2( 214, -80 )
-scale = Vector2( 1, 1.18359 )
-build_mode = 0
-polygon = PoolVector2Array( 74, 446.1, -246, 446.1, -246, 527.21, 1482, 527.21, 1482, 419.064, 1482, 364.991, 1376, 364.956, 1376, 283.847, 1232, 283.847, 1232, 324.402, 1136, 324.402, 928, 351.438, 928, 419.029, 528, 419.029, 480, 419.029, 416, 432.547, 352, 446.065, 240, 446.065, 170, 446.1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Mapa1" index="2"]
-
-editor/display_folded = true
-position = Vector2( 932, 0 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa1/StaticBody2D" index="0"]
-
-position = Vector2( -4, -32 )
-build_mode = 0
-polygon = PoolVector2Array( 1056, 288, 928, 288, 928, 256, 832, 256, 832, 208, 688, 208, 688, 336, 1056, 336 )
-
-[node name="Area2D" type="Area2D" parent="Mapa1" index="3"]
+[node name="Area2D" type="Area2D" parent="Mapa1" index="1"]
 
 editor/display_folded = true
 position = Vector2( 1728, 416 )
@@ -93,17 +53,17 @@ __meta__ = {
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Init" type="Position2D" parent="Mapa1" index="4"]
+[node name="Init" type="Position2D" parent="Mapa1" index="2"]
 
 position = Vector2( 0, 448 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="End" type="Position2D" parent="Mapa1" index="5"]
+[node name="End" type="Position2D" parent="Mapa1" index="3"]
 
 position = Vector2( 2624, 448 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="Mapa1" index="6"]
+[node name="TileMap" type="TileMap" parent="Mapa1" index="4"]
 
 position = Vector2( -6, 0 )
 z_index = -1
@@ -123,93 +83,28 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -262165, 3, 0, -262164, 3, 0, -262163, 3, 0, -262162, 3, 0, -262161, 3, 0, -196629, 3, 0, -196628, 3, 0, -196627, 3, 0, -196626, 3, 0, -196625, 3, 0, -131092, 3, 0, -131091, 3, 0, -131090, 3, 0, -131088, 3, 0, -65555, 3, 0, -65552, 3, 0, -65551, 3, 0, -19, 3, 0, -15, 3, 0, -14, 3, 0, 65518, 3, 0, 65519, 3, 0, 65520, 3, 0, 65522, 3, 0, 65523, 3, 0, 131056, 3, 0, 131059, 3, 0, 982989, 3, 0, 982990, 3, 0, 982991, 3, 0, 982992, 3, 0, 982993, 3, 0, 982994, 3, 0, 982995, 3, 0, 982996, 3, 0, 982997, 3, 0, 982998, 3, 0, 982999, 3, 0, 983000, 3, 0, 983001, 3, 0 )
+tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
-[node name="Barril" parent="Mapa1" index="7" instance=ExtResource( 6 )]
+[node name="Barril" parent="Mapa1" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 1344, 448 )
-
-[node name="ChãoDeFora" parent="Mapa1" index="8" instance=ExtResource( 7 )]
-
-position = Vector2( 64, 448 )
-
-[node name="ChãoDeFora2" parent="Mapa1" index="9" instance=ExtResource( 7 )]
-
-position = Vector2( 128, 448 )
-
-[node name="ChãoDeFora3" parent="Mapa1" index="10" instance=ExtResource( 7 )]
-
-position = Vector2( 192, 448 )
-
-[node name="ChãoDeFora4" parent="Mapa1" index="11" instance=ExtResource( 7 )]
-
-position = Vector2( 256, 448 )
-
-[node name="ChãoDeFora5" parent="Mapa1" index="12" instance=ExtResource( 7 )]
-
-position = Vector2( 320, 448 )
-
-[node name="ChãoDeFora6" parent="Mapa1" index="13" instance=ExtResource( 7 )]
-
-position = Vector2( 384, 448 )
-
-[node name="ChãoDeFora7" parent="Mapa1" index="14" instance=ExtResource( 7 )]
-
-position = Vector2( 0, 448 )
 
 [node name="Mapa2" type="Node2D" parent="." index="1" groups=[
 "Mapa",
 ]]
 
-editor/display_folded = true
 position = Vector2( -1792, 512 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Mapa2" index="0"]
+[node name="Init" type="Position2D" parent="Mapa2" index="0"]
 
-position = Vector2( 1920, -496 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa2/StaticBody2D" index="0"]
-
-position = Vector2( 640, 32 )
-build_mode = 0
-polygon = PoolVector2Array( -928, 464, -928, 592, -1248, 592, -2560, 592, -2560, 464, -2106, 464, -2106, 368, -2058, 368, -2058, 288, -2010, 288, -2010, 192, -1850, 192, -1850, 464, -1722, 464, -1722, 384, -1658, 384, -1658, 288, -1530, 288, -1530, 464, -1392, 464, -1392, 400, -1264, 400, -1264, 464 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Mapa2" index="1"]
-
-position = Vector2( 1920, -496 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mapa2/StaticBody2D2" index="0"]
-
-position = Vector2( 640, 32 )
-build_mode = 0
-polygon = PoolVector2Array( -1600, 144, -1600, 144, -1600, -144, -1472, -144, -1376, -48, -1312, 80, -1312, 144 )
-
-[node name="Init" type="Position2D" parent="Mapa2" index="2"]
-
-[node name="End" type="Position2D" parent="Mapa2" index="3"]
+[node name="End" type="Position2D" parent="Mapa2" index="1"]
 
 position = Vector2( 1632, 0 )
 
-[node name="SonClaus" parent="." index="2" instance=ExtResource( 8 )]
+[node name="SonClaus" parent="." index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -779.593, -178.161 )
 
@@ -296,7 +191,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="PauseMenu" parent="CanvasLayer" index="1" instance=ExtResource( 9 )]
+[node name="PauseMenu" parent="CanvasLayer" index="1" instance=ExtResource( 8 )]
 
 visible = false
 
@@ -307,7 +202,7 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Bat" parent="." index="5" instance=ExtResource( 10 )]
+[node name="Bat" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 0, 448 )
 _sections_unfolded = [ "Transform" ]
