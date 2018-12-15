@@ -12,6 +12,8 @@ onready var progress = $UI/Progress
 onready var label = $UI/Progress/Label
 onready var timer = $Timer
 
+var player = null
+
 func _ready():
 	startUi()
 	timer.wait_time = time
@@ -25,11 +27,17 @@ func _process(delta):
 		FBtn.visible = player_on
 		
 		if player_on and Input.is_action_pressed("presente"):
+			if player != null:
+				player.can_move = false
+				player.gifting = true
 			FBtn.hide()
 			if timer.is_stopped():
 				timer.start()
 				progress.show()
 		else:
+			if player != null:
+				player.can_move = true
+				player.gifting = false
 			progress.hide()
 			timer.stop()
 			timer.wait_time = time
@@ -51,14 +59,18 @@ func startUi():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		player_on = true
+		player = body
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		player_on = false
+		player = null
 
 
 func _on_Timer_timeout():
 	able = false
+	player.can_move = true
+	player.gifting = false
 	timer.stop()
 	startUi()
 	FBtn.hide()

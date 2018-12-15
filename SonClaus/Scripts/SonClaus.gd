@@ -38,6 +38,8 @@ var can_dash = true
 var can_move = true
 var knockback_timer = 0
 
+var gifting = false
+
 var anim=""
 
 #cache the sprite here for fast access (we will set scale to flip it often)
@@ -198,16 +200,21 @@ func _physics_process(delta):
 			new_anim = "jumping"
 		if linear_vel.y > 0:
 			new_anim = "falling"
-	else:
+	elif !gifting:
 		new_anim = "knockback_air"
 		if on_floor:
 			new_anim = "knockback_ground"
+		
 			
 	if attack_time < ATTACK_TIME_ANIM and !on_wall:
 		new_anim = "attack"
 	
 	if dashing:
 		new_anim = "dash"
+		
+	if gifting:
+		new_anim = "gifts"
+	
 		
 	if new_anim != anim:
 		anim = new_anim
