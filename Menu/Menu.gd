@@ -7,7 +7,7 @@ extends MarginContainer
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Start.grab_focus()
+	$VBoxContainer/MarginContainer/VBoxContainer/Start.grab_focus()
 	#pass
 
 #func _process(delta):

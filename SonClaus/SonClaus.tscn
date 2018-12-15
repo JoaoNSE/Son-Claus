@@ -1154,7 +1154,7 @@ tracks/7/keys = {
 custom_solver_bias = 0.0
 radius = 12.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
