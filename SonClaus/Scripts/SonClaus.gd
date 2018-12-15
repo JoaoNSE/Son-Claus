@@ -60,6 +60,7 @@ onready var slide_p = preload("res://SonClaus/SlideParticles.tscn")
 onready var sfx_pre = preload("res://SonClaus/SFX.tscn")
 onready var walk_sfx = preload("res://SonClaus/AUDIO/pisar_na_neve.wav")
 onready var slide_sfx = preload("res://SonClaus/AUDIO/descendo_chamine.wav")
+onready var knockback_sfx = preload("res://SonClaus/AUDIO/knockback.wav")
 
 func _physics_process(delta):
 	#increment counters
@@ -244,6 +245,7 @@ func _physics_process(delta):
 func knockBack(dir):
 	if !can_move:
 		return
+	_play_knocknack_sfx()
 	var vec = Vector2(.4, -.6)
 	vec.x *= dir
 	linear_vel.x = 0
@@ -316,6 +318,7 @@ func _play_walk_sfx():
 	var sfx = sfx_pre.instance()
 	var sfx_a = walk_sfx
 	sfx.stream = sfx_a
+	sfx.volume_db = -20
 	#sfx.pitch_scale = 1
 	add_child(sfx)
 	
@@ -327,4 +330,8 @@ func _play_slide_sfx():
 	sfx.volume_db = -20
 	add_child(sfx)
 	
-	sfx.play()
+func _play_knocknack_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = knockback_sfx
+	sfx.stream = sfx_a
+	add_child(sfx)
