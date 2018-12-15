@@ -18,7 +18,7 @@ const JUMP_LOW_MULT = 2.0
 
 const SIDING_CHANGE_SPEED = 10
 const BULLET_VELOCITY = 1000
-const ATTACK_TIME_ANIM = 0.5
+const ATTACK_TIME_ANIM = 0.55
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 0.4
 const KNOCKBACK_DURATION = 2
@@ -199,7 +199,7 @@ func _physics_process(delta):
 		if linear_vel.y > 0:
 			new_anim = "falling"
 			
-	if attack_time < ATTACK_TIME_ANIM:
+	if attack_time < ATTACK_TIME_ANIM and !on_wall:
 		new_anim = "attack"
 		
 	if new_anim != anim:
