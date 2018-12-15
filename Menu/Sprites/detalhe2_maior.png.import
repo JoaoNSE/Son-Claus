@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sonclauslogo.png-e66fe23ab57d6f6119000643f650246a.stex"
+path="res://.import/detalhe2_maior.png-5f231537471a8423a69a12fce7f59c78.stex"
 
 [deps]
 
-source_file="res://Menu/sonclauslogo.png"
-dest_files=[ "res://.import/sonclauslogo.png-e66fe23ab57d6f6119000643f650246a.stex" ]
+source_file="res://Menu/Sprites/detalhe2_maior.png"
+dest_files=[ "res://.import/detalhe2_maior.png-5f231537471a8423a69a12fce7f59c78.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
