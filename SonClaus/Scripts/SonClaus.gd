@@ -198,6 +198,10 @@ func _physics_process(delta):
 			new_anim = "jumping"
 		if linear_vel.y > 0:
 			new_anim = "falling"
+	else:
+		new_anim = "knockback_air"
+		if on_floor:
+			new_anim = "knockback_ground"
 			
 	if attack_time < ATTACK_TIME_ANIM and !on_wall:
 		new_anim = "attack"

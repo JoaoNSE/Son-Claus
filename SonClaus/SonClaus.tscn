@@ -1,17 +1,18 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://SonClaus/Scripts/SonClaus.gd" type="Script" id=1]
-[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://SonClaus/Sprites/knockback.png" type="Texture" id=2]
 [ext_resource path="res://SonClaus/Sprites/attack.png" type="Texture" id=3]
 [ext_resource path="res://SonClaus/Sprites/dash.png" type="Texture" id=4]
 [ext_resource path="res://SonClaus/Sprites/fall.png" type="Texture" id=5]
-[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=6]
-[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=7]
-[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=8]
-[ext_resource path="res://Particles/Neve1.tres" type="Material" id=9]
-[ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=10]
-[ext_resource path="res://Particles/Neve2.tres" type="Material" id=11]
-[ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=12]
+[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=6]
+[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=7]
+[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=8]
+[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=9]
+[ext_resource path="res://Particles/Neve1.tres" type="Material" id=10]
+[ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=11]
+[ext_resource path="res://Particles/Neve2.tres" type="Material" id=12]
+[ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -73,6 +74,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Rect2( 0, 0, 96, 64 ), Rect2( 96, 0, 96, 64 ), Rect2( 192, 0, 96, 64 ), Rect2( 288, 0, 96, 64 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 
@@ -103,6 +116,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ),
 "update": 0,
 "values": [ Rect2( 0, 0, 48, 64 ), Rect2( 48, 0, 48, 64 ), Rect2( 96, 0, 48, 64 ), Rect2( 144, 0, 48, 64 ), Rect2( 192, 0, 48, 64 ), Rect2( 240, 0, 48, 64 ), Rect2( 288, 0, 48, 64 ), Rect2( 336, 0, 48, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -135,6 +160,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Rect2( 0, 0, 32, 64 ), Rect2( 32, 0, 32, 64 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 
@@ -163,7 +200,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -203,6 +240,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -219,7 +268,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -232,6 +281,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0, 0 ),
 "update": 0,
 "values": [ Rect2( 0, 0, 32, 64 ), Rect2( 0, 0, 32, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -250,7 +311,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -263,6 +324,104 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0, 0 ),
 "update": 0,
 "values": [ Rect2( 32, 0, 32, 64 ), Rect2( 32, 0, 32, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "knockback_air"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 48, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 0, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "knockback_ground"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 48, 0, 48, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -280,7 +439,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -293,6 +452,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0, 0, 0, 0 ),
 "update": 0,
 "values": [ Rect2( 48, 0, 48, 64 ), Rect2( 96, 0, 48, 64 ), Rect2( 144, 0, 48, 64 ), Rect2( 0, 0, 48, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -311,7 +482,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -324,6 +495,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0, 0 ),
 "update": 0,
 "values": [ Rect2( 0, 0, 32, 64 ), Rect2( 32, 0, 32, 64 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="CircleShape2D" id=9]
@@ -352,8 +535,8 @@ _sections_unfolded = [ "Transform" ]
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 32, 64 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+region_rect = Rect2( 0, 0, 48, 64 )
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Tween" type="Tween" parent="." index="2"]
 
@@ -377,6 +560,8 @@ anims/falling = SubResource( 3 )
 anims/idle = SubResource( 4 )
 anims/jump_start = SubResource( 5 )
 anims/jumping = SubResource( 6 )
+anims/knockback_air = SubResource( 11 )
+anims/knockback_ground = SubResource( 12 )
 anims/running = SubResource( 7 )
 anims/slide = SubResource( 8 )
 blend_times = [  ]
@@ -451,8 +636,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = ExtResource( 9 )
-texture = ExtResource( 10 )
+process_material = ExtResource( 10 )
+texture = ExtResource( 11 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -473,8 +658,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = ExtResource( 11 )
-texture = ExtResource( 12 )
+process_material = ExtResource( 12 )
+texture = ExtResource( 13 )
 normal_map = null
 h_frames = 1
 v_frames = 1
