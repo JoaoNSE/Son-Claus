@@ -1,14 +1,50 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/sonclauslogo.png" type="Texture" id=2]
+[ext_resource path="res://Menu/title_loop.ogg" type="AudioStream" id=3]
 
-[node name="Menu" type="MarginContainer"]
+[sub_resource type="Animation" id=1]
+
+resource_name = "idle"
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[node name="Menu" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -300.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -18,52 +54,138 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Margin" ]
 
-[node name="Container" type="Container" parent="." index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 724.0
+margin_right = 984.0
 margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 50
+alignment = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.268448
+margin_right = 976.0
+margin_bottom = 186.268
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/TextureRect" index="0"]
+
+root_node = NodePath("..")
+autoplay = "idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 1 )
+blend_times = [  ]
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 223.0
+margin_right = 976.0
+margin_bottom = 483.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
+custom_constants/margin_right = 100
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container" index="0"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -300.0
-margin_right = 118.0
-margin_bottom = 300.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 100
-alignment = 1
-
-[node name="Start" type="Button" parent="Container/VBoxContainer" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 170.0
-margin_right = 182.0
-margin_bottom = 190.0
+margin_left = 8.0
+margin_right = 876.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 700.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 700, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 704.0
+margin_right = 868.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 100
+alignment = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="Start" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 164.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../Credits")
@@ -82,15 +204,15 @@ flat = false
 align = 1
 _sections_unfolded = [ "Focus" ]
 
-[node name="Credits" type="Button" parent="Container/VBoxContainer" index="1"]
+[node name="Credits" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 290.0
-margin_right = 182.0
-margin_bottom = 310.0
+margin_top = 120.0
+margin_right = 164.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../Exit")
@@ -109,15 +231,15 @@ flat = false
 align = 1
 _sections_unfolded = [ "Focus", "Size Flags" ]
 
-[node name="Exit" type="Button" parent="Container/VBoxContainer" index="2"]
+[node name="Exit" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 182.0
-margin_bottom = 430.0
+margin_top = 240.0
+margin_right = 164.0
+margin_bottom = 260.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../Start")
@@ -136,8 +258,17 @@ flat = false
 align = 1
 _sections_unfolded = [ "Focus", "Rect", "Size Flags" ]
 
-[connection signal="pressed" from="Container/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 
-[connection signal="pressed" from="Container/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 
 
