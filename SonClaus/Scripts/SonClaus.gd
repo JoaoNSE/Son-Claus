@@ -183,6 +183,9 @@ func _physics_process(delta):
 		if abs(linear_vel.x) > 100:
 			new_anim = "running"
 			
+	elif can_move and on_wall:
+		new_anim = "slide"
+	
 	elif can_move:
 		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 			to_left()
@@ -227,7 +230,7 @@ func to_left():
 		cam_tween.start()                                                        
 	sprite.flip_h = true
 	arma.rotation = PI
-	$Pivot.rotation = PI
+	$Pivot.scale.x = -1
 	if sign($Breath.position.x) >=0: 
 		$Breath.position.x *= -1
 	
@@ -243,7 +246,7 @@ func to_right():
 		#cam_switching_time = 0
 	sprite.flip_h = false
 	arma.rotation = 0
-	$Pivot.rotation = 0
+	$Pivot.scale.x = 1
 	if sign($Breath.position.x) < 0: 
 		$Breath.position.x *= -1
 	
