@@ -52,13 +52,14 @@ onready var wall1 = $Pivot/Wall1
 onready var wall2 = $Pivot/Wall2
 onready var camera = $CameraOffset/Camera2D
 onready var cam_tween = $CameraOffset/Tween
-onready var sfx = $SFX
 
 onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 onready var breath_p = preload("res://SonClaus/BreathParticles.tscn")
 onready var slide_p = preload("res://SonClaus/SlideParticles.tscn")
 
+onready var sfx_pre = preload("res://SonClaus/SFX.tscn")
 onready var walk_sfx = preload("res://SonClaus/AUDIO/pisar_na_neve.wav")
+onready var slide_sfx = preload("res://SonClaus/AUDIO/descendo_chamine.wav")
 
 func _physics_process(delta):
 	#increment counters
@@ -312,7 +313,18 @@ func _emit_slide_p():
 	$Breath.add_child(temp_p)
 	
 func _play_walk_sfx():
+	var sfx = sfx_pre.instance()
 	var sfx_a = walk_sfx
-	#sfx_a.set_loop(false)
 	sfx.stream = sfx_a
+	#sfx.pitch_scale = 1
+	add_child(sfx)
+	
+func _play_slide_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = slide_sfx
+	sfx.stream = sfx_a
+	sfx.pitch_scale = 2
+	sfx.volume_db = -20
+	add_child(sfx)
+	
 	sfx.play()
