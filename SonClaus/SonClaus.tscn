@@ -1,16 +1,16 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://SonClaus/Scripts/SonClaus.gd" type="Script" id=1]
-[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=2]
-[ext_resource path="res://SonClaus/Sprites/attack.png" type="Texture" id=3]
-[ext_resource path="res://SonClaus/Sprites/crounch.png" type="Texture" id=4]
-[ext_resource path="res://SonClaus/Sprites/dash.png" type="Texture" id=5]
-[ext_resource path="res://SonClaus/Sprites/fall.png" type="Texture" id=6]
-[ext_resource path="res://SonClaus/Sprites/presente.png" type="Texture" id=7]
-[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=8]
-[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=9]
-[ext_resource path="res://SonClaus/Sprites/knockback.png" type="Texture" id=10]
-[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=11]
+[ext_resource path="res://SonClaus/Sprites/attack.png" type="Texture" id=2]
+[ext_resource path="res://SonClaus/Sprites/crounch.png" type="Texture" id=3]
+[ext_resource path="res://SonClaus/Sprites/dash.png" type="Texture" id=4]
+[ext_resource path="res://SonClaus/Sprites/fall.png" type="Texture" id=5]
+[ext_resource path="res://SonClaus/Sprites/presente.png" type="Texture" id=6]
+[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=7]
+[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=8]
+[ext_resource path="res://SonClaus/Sprites/knockback.png" type="Texture" id=9]
+[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=10]
+[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=11]
 [ext_resource path="res://Particles/Neve1.tres" type="Material" id=12]
 [ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=13]
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=14]
@@ -64,7 +64,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite:region_rect")
@@ -126,6 +126,20 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_play_hit_sfx"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -143,7 +157,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -234,7 +248,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -312,7 +326,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -439,7 +453,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Sprite:position")
@@ -477,6 +491,20 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_play_presente_sfx"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 
@@ -505,7 +533,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -609,7 +637,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -687,7 +715,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -766,7 +794,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -845,7 +873,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -923,7 +951,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -1018,7 +1046,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -1141,7 +1169,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 32, 0, 32, 64 )
+region_rect = Rect2( 288, 0, 96, 64 )
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -1186,6 +1214,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Arma_Area" type="Area2D" parent="Arma" index="0"]
 
+position = Vector2( 31.2752, 0 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
