@@ -52,10 +52,13 @@ onready var wall1 = $Pivot/Wall1
 onready var wall2 = $Pivot/Wall2
 onready var camera = $CameraOffset/Camera2D
 onready var cam_tween = $CameraOffset/Tween
+onready var sfx = $SFX
 
 onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 onready var breath_p = preload("res://SonClaus/BreathParticles.tscn")
 onready var slide_p = preload("res://SonClaus/SlideParticles.tscn")
+
+onready var walk_sfx = preload("res://SonClaus/AUDIO/pisar_na_neve.wav")
 
 func _physics_process(delta):
 	#increment counters
@@ -171,6 +174,7 @@ func _physics_process(delta):
 	##ANIMTATION
 	#fumacinha quando cai
 	if on_floor and !p_on_floor and temp_l_y > 10:
+		_play_walk_sfx()
 		#instancia fumacinha
 		var temp_p = foot_p.instance()
 		temp_p.position = Vector2(0, 32)
@@ -306,3 +310,9 @@ func _emit_slide_p():
 		temp_p.rotation = PI
 	temp_p.emitting = true
 	$Breath.add_child(temp_p)
+	
+func _play_walk_sfx():
+	var sfx_a = walk_sfx
+	#sfx_a.set_loop(false)
+	sfx.stream = sfx_a
+	sfx.play()

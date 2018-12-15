@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pisar_na_neve.wav-ac761c77da24b9d49d71d8c32c35699c.sample"
+
+[deps]
+
+source_file="res://SonClaus/AUDIO/pisar_na_neve.wav"
+dest_files=[ "res://.import/pisar_na_neve.wav-ac761c77da24b9d49d71d8c32c35699c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
