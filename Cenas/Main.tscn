@@ -4,7 +4,7 @@
 [ext_resource path="res://MapLoop.gd" type="Script" id=2]
 [ext_resource path="res://House/Scenes/Casa1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/KnockTest.gd" type="Script" id=4]
-[ext_resource path="res://World/OutsideBackTile.tres" type="TileSet" id=5]
+[ext_resource path="res://World/OutsideFrontTile.tres" type="TileSet" id=5]
 [ext_resource path="res://Objects/Barril.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/ChãoDeFora.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SonClaus/SonClaus.tscn" type="PackedScene" id=8]
@@ -123,8 +123,8 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+tile_data = PoolIntArray( -262165, 3, 0, -262164, 3, 0, -262163, 3, 0, -262162, 3, 0, -262161, 3, 0, -196629, 3, 0, -196628, 3, 0, -196627, 3, 0, -196626, 3, 0, -196625, 3, 0, -131092, 3, 0, -131091, 3, 0, -131090, 3, 0, -131088, 3, 0, -65555, 3, 0, -65552, 3, 0, -65551, 3, 0, -19, 3, 0, -15, 3, 0, -14, 3, 0, 65518, 3, 0, 65519, 3, 0, 65520, 3, 0, 65522, 3, 0, 65523, 3, 0, 131056, 3, 0, 131059, 3, 0, 982989, 3, 0, 982990, 3, 0, 982991, 3, 0, 982992, 3, 0, 982993, 3, 0, 982994, 3, 0, 982995, 3, 0, 982996, 3, 0, 982997, 3, 0, 982998, 3, 0, 982999, 3, 0, 983000, 3, 0, 983001, 3, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Barril" parent="Mapa1" index="7" instance=ExtResource( 6 )]
 
@@ -211,7 +211,7 @@ position = Vector2( 1632, 0 )
 
 [node name="SonClaus" parent="." index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 701.031, 194.482 )
+position = Vector2( -779.593, -178.161 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 

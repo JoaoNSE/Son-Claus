@@ -14,9 +14,10 @@ extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
 
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
 [node name="WoodPlataform" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -32, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -113,7 +114,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="TelhadoE_Verde" type="Sprite" parent="." index="4"]
 
-editor/display_folded = true
 modulate = Color( 0.490196, 1, 0.745098, 1 )
 position = Vector2( 224, 0 )
 texture = ExtResource( 2 )
@@ -124,7 +124,6 @@ __meta__ = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TelhadoE_Verde" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -132,15 +131,16 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TelhadoE_Verde/StaticBody2D" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 16, -16, -16, 16, 16, 16 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="TelhadoC_Verde" type="Sprite" parent="." index="5"]
 
-editor/display_folded = true
 modulate = Color( 0.490196, 1, 0.745098, 1 )
 position = Vector2( 256, 0 )
 texture = ExtResource( 3 )
@@ -151,7 +151,6 @@ __meta__ = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TelhadoC_Verde" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -159,7 +158,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TelhadoC_Verde/StaticBody2D" index="0"]
 
