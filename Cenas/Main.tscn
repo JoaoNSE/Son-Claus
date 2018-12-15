@@ -83,7 +83,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 917545, 1, 0, 917546, 1, 0, 917547, 1, 0, 917548, 1, 0, 917549, 1, 0, 917550, 1, 0 )
+tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Barril" parent="Mapa1" index="5" instance=ExtResource( 6 )]
