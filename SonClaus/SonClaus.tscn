@@ -1,15 +1,15 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://SonClaus/Scripts/SonClaus.gd" type="Script" id=1]
-[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=2]
 [ext_resource path="res://SonClaus/Sprites/attack.png" type="Texture" id=3]
 [ext_resource path="res://SonClaus/Sprites/dash.png" type="Texture" id=4]
 [ext_resource path="res://SonClaus/Sprites/fall.png" type="Texture" id=5]
 [ext_resource path="res://SonClaus/Sprites/presente.png" type="Texture" id=6]
-[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=7]
-[ext_resource path="res://SonClaus/Sprites/knockback.png" type="Texture" id=8]
-[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=9]
-[ext_resource path="res://SonClaus/Sprites/slide.png" type="Texture" id=10]
+[ext_resource path="res://SonClaus/Sprites/idle.png" type="Texture" id=7]
+[ext_resource path="res://SonClaus/Sprites/jump.png" type="Texture" id=8]
+[ext_resource path="res://SonClaus/Sprites/knockback.png" type="Texture" id=9]
+[ext_resource path="res://SonClaus/Sprites/run.png" type="Texture" id=10]
 [ext_resource path="res://Particles/Neve1.tres" type="Material" id=11]
 [ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=12]
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=13]
@@ -316,7 +316,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -396,7 +396,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -451,7 +451,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -506,7 +506,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -561,7 +561,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -615,7 +615,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -670,7 +670,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:region_rect")
@@ -708,6 +708,32 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0 ),
+"values": [ {
+"args": [  ],
+"method": "_emit_slide_p"
+}, {
+"args": [  ],
+"method": "_emit_slide_p"
+}, {
+"args": [  ],
+"method": "_emit_slide_p"
+}, {
+"args": [  ],
+"method": "_emit_slide_p"
+}, {
+"args": [  ],
+"method": "_emit_slide_p"
+} ]
+}
 
 [sub_resource type="CircleShape2D" id=9]
 
@@ -735,7 +761,7 @@ _sections_unfolded = [ "Transform" ]
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 32, 64 )
+region_rect = Rect2( 32, 0, 32, 64 )
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Tween" type="Tween" parent="." index="2"]
@@ -877,6 +903,7 @@ playback/speed = 1.0
 
 [node name="Pivot" type="Position2D" parent="." index="6"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="RayCast2D" parent="Pivot" index="0"]

@@ -54,6 +54,7 @@ onready var cam_tween = $CameraOffset/Tween
 
 onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 onready var breath_p = preload("res://SonClaus/BreathParticles.tscn")
+onready var slide_p = preload("res://SonClaus/SlideParticles.tscn")
 
 func _physics_process(delta):
 	#increment counters
@@ -279,6 +280,17 @@ func _emit_breath():
 	if sign(temp_p.position.x) >= 0:
 		temp_p.rotation = 0
 	else:
+		temp_p.rotation = PI
+	temp_p.emitting = true
+	$Breath.add_child(temp_p)
+	
+func _emit_slide_p():
+	var temp_p = slide_p.instance()
+	if !sprite.flip_h:
+		temp_p.position = Vector2(8, -22)
+		temp_p.rotation = 0
+	else:
+		temp_p.position = Vector2(-8, -22)
 		temp_p.rotation = PI
 	temp_p.emitting = true
 	$Breath.add_child(temp_p)
