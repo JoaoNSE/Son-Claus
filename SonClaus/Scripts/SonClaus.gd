@@ -83,7 +83,7 @@ func _physics_process(delta):
 			linear_vel.y = delta * GRAVITY_VEC.y*8
 			# Apply force against the wall
 			if linear_vel.x == 0:
-				linear_vel.x += sign(int(sprite.flip_h)*2 - 1) * JUMP_SPEED
+				linear_vel.x += sign(int(sprite.flip_h)*2 - 1) * 200
 		else:
 			linear_vel += delta * GRAVITY_VEC
 		
@@ -201,6 +201,9 @@ func _physics_process(delta):
 			
 	if attack_time < ATTACK_TIME_ANIM and !on_wall:
 		new_anim = "attack"
+	
+	if dashing:
+		new_anim = "dash"
 		
 	if new_anim != anim:
 		anim = new_anim
