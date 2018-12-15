@@ -253,7 +253,7 @@ func to_left():
 	#mudar a camera
 	if !sprite.flip_h:
 		#$Pivot/CameraOffset.position = Vector2(0, 0)
-		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, -208, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, -80, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		cam_tween.start()                                                        
 	sprite.flip_h = true
 	arma.rotation = PI
@@ -267,7 +267,7 @@ func to_right():
 	#mudar a camera
 	if sprite.flip_h:
 		#$Pivot/CameraOffset.position = Vector2(0, 0)
-		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, 208, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, 80, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		cam_tween.start()
 		  
 		#cam_switching_time = 0
