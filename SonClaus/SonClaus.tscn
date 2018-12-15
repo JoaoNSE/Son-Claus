@@ -127,7 +127,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=3]
 
 resource_name = "crounch"
 length = 1.0
@@ -218,7 +218,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 16 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=4]
 
 resource_name = "dash"
 length = 0.2
@@ -297,7 +297,7 @@ tracks/5/keys = {
 "values": [ 40.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=5]
 
 length = 0.5
 loop = true
@@ -375,7 +375,7 @@ tracks/5/keys = {
 "values": [ 40.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=6]
 
 resource_name = "gifts"
 length = 0.5
@@ -478,7 +478,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=7]
 
 length = 1.0
 loop = true
@@ -594,7 +594,7 @@ tracks/8/keys = {
 "values": [ 40.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=8]
 
 length = 1.0
 loop = false
@@ -672,7 +672,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=9]
 
 length = 1.0
 loop = true
@@ -1095,7 +1095,7 @@ tracks/6/keys = {
 custom_solver_bias = 0.0
 radius = 12.0
 
-[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
+[node name="SonClaus" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -1135,13 +1135,13 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/attack = SubResource( 2 )
-anims/crounch = SubResource( 15 )
-anims/dash = SubResource( 16 )
-anims/falling = SubResource( 17 )
-anims/gifts = SubResource( 18 )
-anims/idle = SubResource( 19 )
-anims/jump_start = SubResource( 20 )
-anims/jumping = SubResource( 21 )
+anims/crounch = SubResource( 3 )
+anims/dash = SubResource( 4 )
+anims/falling = SubResource( 5 )
+anims/gifts = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/jump_start = SubResource( 8 )
+anims/jumping = SubResource( 9 )
 anims/knockback_air = SubResource( 10 )
 anims/knockback_ground = SubResource( 11 )
 anims/running = SubResource( 12 )
@@ -1258,7 +1258,6 @@ playback/speed = 1.0
 
 [node name="Pivot" type="Position2D" parent="." index="6"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="RayCast2D" parent="Pivot" index="0"]

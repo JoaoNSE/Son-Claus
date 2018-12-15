@@ -33,6 +33,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform/StaticBody2D" index="0"]
 
@@ -41,7 +42,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WoodPlataform2" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 32, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -57,6 +57,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform2/StaticBody2D2" index="0"]
 
@@ -65,7 +66,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WoodPlataform3" type="Sprite" parent="." index="2"]
 
-editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 32, 32 )
@@ -81,7 +81,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPlataform3/StaticBody2D3" index="0"]
 

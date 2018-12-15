@@ -19,12 +19,13 @@ _sections_unfolded = [ "Region" ]
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite" index="0"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D" index="0"]
 
@@ -65,12 +66,13 @@ _sections_unfolded = [ "Region" ]
 
 editor/display_folded = true
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite3/StaticBody2D" index="0"]
 
@@ -111,12 +113,13 @@ _sections_unfolded = [ "Region" ]
 
 editor/display_folded = true
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite5/StaticBody2D" index="0"]
 
@@ -201,14 +204,14 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite9" index="0"]
 
-editor/display_folded = true
 input_pickable = false
-collision_layer = 1
+collision_layer = 1025
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite9/StaticBody2D" index="0"]
 
