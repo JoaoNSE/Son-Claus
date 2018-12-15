@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/descendo_chamine.wav-7b29441ceeba4ad7d7f508c69f7b4114.sample"
+
+[deps]
+
+source_file="res://SonClaus/AUDIO/descendo_chamine.wav"
+dest_files=[ "res://.import/descendo_chamine.wav-7b29441ceeba4ad7d7f508c69f7b4114.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

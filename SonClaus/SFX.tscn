@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SonClaus/AUDIO/descendo_chamine.wav" type="AudioStream" id=1]
+[ext_resource path="res://SonClaus/Scripts/SFX.gd" type="Script" id=2]
+
+[node name="SFX" type="AudioStreamPlayer2D"]
+
+stream = ExtResource( 1 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+script = ExtResource( 2 )
+
+[connection signal="finished" from="." to="." method="_on_SFX_finished"]
+
+

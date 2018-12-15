@@ -57,6 +57,13 @@ onready var foot_p = preload("res://SonClaus/FootParticles.tscn")
 onready var breath_p = preload("res://SonClaus/BreathParticles.tscn")
 onready var slide_p = preload("res://SonClaus/SlideParticles.tscn")
 
+onready var sfx_pre = preload("res://SonClaus/SFX.tscn")
+onready var walk_sfx = preload("res://SonClaus/AUDIO/pisar_na_neve.wav")
+onready var slide_sfx = preload("res://SonClaus/AUDIO/descendo_chamine.wav")
+onready var knockback_sfx = preload("res://SonClaus/AUDIO/knockback.wav")
+onready var presente_sfx = preload("res://SonClaus/AUDIO/presente.wav")
+onready var hit_sfx = preload("res://SonClaus/AUDIO/hit.wav")
+
 func _physics_process(delta):
 	#increment counters
 
@@ -171,6 +178,7 @@ func _physics_process(delta):
 	##ANIMTATION
 	#fumacinha quando cai
 	if on_floor and !p_on_floor and temp_l_y > 10:
+		_play_walk_sfx()
 		#instancia fumacinha
 		var temp_p = foot_p.instance()
 		temp_p.position = Vector2(0, 32)
@@ -239,6 +247,7 @@ func _physics_process(delta):
 func knockBack(dir):
 	if !can_move:
 		return
+	_play_knocknack_sfx()
 	var vec = Vector2(.4, -.6)
 	vec.x *= dir
 	linear_vel.x = 0
@@ -306,3 +315,38 @@ func _emit_slide_p():
 		temp_p.rotation = PI
 	temp_p.emitting = true
 	$Breath.add_child(temp_p)
+	
+func _play_walk_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = walk_sfx
+	sfx.stream = sfx_a
+	sfx.volume_db = -20
+	#sfx.pitch_scale = 1
+	add_child(sfx)
+	
+func _play_slide_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = slide_sfx
+	sfx.stream = sfx_a
+	sfx.pitch_scale = 2
+	sfx.volume_db = -20
+	add_child(sfx)
+	
+func _play_knocknack_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = knockback_sfx
+	sfx.stream = sfx_a
+	add_child(sfx)
+	
+func _play_presente_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = presente_sfx
+	sfx.stream = sfx_a
+	add_child(sfx)
+	
+func _play_hit_sfx():
+	var sfx = sfx_pre.instance()
+	var sfx_a = hit_sfx
+	sfx.stream = sfx_a
+	sfx.volume_db = -20
+	add_child(sfx)
