@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://SonClaus/Scripts/SonClaus.gd" type="Script" id=1]
 [ext_resource path="res://SonClaus/Sprites/attack.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Particles/Sprites/snow5.png" type="Texture" id=13]
 [ext_resource path="res://Particles/Neve2.tres" type="Material" id=14]
 [ext_resource path="res://Particles/Sprites/Snow6.png" type="Texture" id=15]
+[ext_resource path="res://SonClaus/Parallax.tscn" type="PackedScene" id=16]
+[ext_resource path="res://World/Sprites/parallax3.png" type="Texture" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -1093,11 +1095,10 @@ tracks/6/keys = {
 custom_solver_bias = 0.0
 radius = 12.0
 
-[node name="SonClaus" type="KinematicBody2D" groups=[
+[node name="SonClaus" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
-position = Vector2( 336, 352 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -1171,6 +1172,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CameraOffset" type="Position2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 80, 0 )
 _sections_unfolded = [ "Transform" ]
 
@@ -1299,8 +1301,51 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 5.98627, -5.53391 )
 
+[node name="Parallax" parent="." index="10" instance=ExtResource( 16 )]
+
+editor/display_folded = false
+scroll_base_scale = Vector2( 1, 0 )
+_sections_unfolded = [ "Scroll" ]
+
+[node name="Casas1" parent="Parallax" index="0"]
+
+editor/display_folded = true
+motion_mirroring = Vector2( 500, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="parallax1" parent="Parallax/Casas1" index="0"]
+
+scale = Vector2( 3.75, 2.5 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Casas2" parent="Parallax" index="1"]
+
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 500, 0 )
+
+[node name="parallax2" parent="Parallax/Casas2" index="0"]
+
+position = Vector2( 0, -32 )
+scale = Vector2( 4, 2.75 )
+
+[node name="Colinas" type="ParallaxLayer" parent="Parallax" index="2"]
+
+motion_scale = Vector2( 0.2, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 500, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="parallax3" type="Sprite" parent="Parallax/Colinas" index="0"]
+
+position = Vector2( 768, 0 )
+scale = Vector2( 4, 2.5 )
+texture = ExtResource( 17 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
 [connection signal="area_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_area_entered"]
 
 [connection signal="body_entered" from="Arma/Arma_Area" to="." method="_on_Arma_Area_body_entered"]
 
 
+[editable path="Parallax"]
