@@ -25,6 +25,7 @@ tempo_limite = 120
 "Mapa",
 ]]
 
+editor/display_folded = true
 position = Vector2( -160, 64 )
 script = ExtResource( 2 )
 
@@ -217,6 +218,7 @@ position = Vector2( 701.031, 194.482 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

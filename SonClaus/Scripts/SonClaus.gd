@@ -39,6 +39,7 @@ var can_move = true
 var knockback_timer = 0
 
 var gifting = false
+var crounch = false
 
 var anim=""
 
@@ -115,18 +116,26 @@ func _physics_process(delta):
 			temp_p.emitting = true
 			add_child(temp_p)
 			onair_time = 0
+			crounch = false
 			
 		elif on_wall:
 			#pula pro lado
 			linear_vel.y = -JUMP_SPEED
 			linear_vel.x = sign(int(sprite.flip_h)*2 - 1) * 2 * JUMP_SPEED
+			crounch = false
 		#$sound_jump.play()
+	
+	if can_move and on_floor and Input.is_action_pressed("crounch"):
+		crounch = true
+		linear_vel.x -= sign(int(sprite.flip_h)*2 - 1) * -1 * 10
+	else:
+		crounch = false
 
 	### CONTROL ###
 
 	var target_speed = 0
 	# Horizontal Movement
-	if can_move:
+	if can_move and !crounch:
 		if Input.is_action_pressed("move_left"):
 			target_speed += -1
 		if Input.is_action_pressed("move_right"):
@@ -135,6 +144,7 @@ func _physics_process(delta):
 		target_speed *= WALK_SPEED
 		
 		linear_vel.x = lerp(linear_vel.x, target_speed, ACCELERATION)
+		crounch = false
 		
 	#DASH
 	if Input.is_action_just_pressed("dash") and can_dash and can_move:
@@ -143,6 +153,7 @@ func _physics_process(delta):
 		dash_time = 0
 		dash_cool_time = 0
 		can_dash = false
+		crounch = false
 		
 	if dash_time > DASH_DURATION:
 		dashing = false
@@ -153,11 +164,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("attack") and attack_time >= 0.6 and can_move:
 		attack_time = 0
+		crounch = false
 		#cam_tween.interpolate_property($Pivot/CameraOffset, "position", position, Vector2(2000, 0), 10, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		#cam_tween.start() 
-		
-	if Input.is_action_just_pressed("ui_accept"):
-		knockBack(-1)
 
 	##ANIMTATION
 	#fumacinha quando cai
@@ -209,6 +218,9 @@ func _physics_process(delta):
 			
 	if attack_time < ATTACK_TIME_ANIM and !on_wall:
 		new_anim = "attack"
+	
+	if crounch:
+		new_anim = "crounch"
 	
 	if dashing:
 		new_anim = "dash"
