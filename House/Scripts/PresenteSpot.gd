@@ -30,6 +30,7 @@ func _process(delta):
 			if player != null:
 				player.can_move = false
 				player.gifting = true
+				player.linear_vel.x = 0
 			FBtn.hide()
 			if timer.is_stopped():
 				timer.start()
@@ -64,6 +65,8 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		player_on = false
+		player.can_move = true
+		player.gifting = false
 		player = null
 
 
