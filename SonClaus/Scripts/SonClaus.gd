@@ -20,7 +20,7 @@ const SIDING_CHANGE_SPEED = 10
 const BULLET_VELOCITY = 1000
 const ATTACK_TIME_ANIM = 0.55
 const DASH_DURATION = 0.2
-const DASH_COOLDOWN = 0.4
+const DASH_COOLDOWN = 0.8
 const KNOCKBACK_DURATION = 2
 
 var linear_vel = Vector2()
@@ -128,7 +128,7 @@ func _physics_process(delta):
 		elif on_wall:
 			#pula pro lado
 			linear_vel.y = -JUMP_SPEED
-			linear_vel.x = sign(int(sprite.flip_h)*2 - 1) * 2 * JUMP_SPEED
+			linear_vel.x = sign(int(sprite.flip_h)*2 - 1) * 2 * JUMP_SPEED*.5
 			crounch = false
 		#$sound_jump.play()
 	
@@ -147,8 +147,12 @@ func _physics_process(delta):
 			target_speed += -1
 		if Input.is_action_pressed("move_right"):
 			target_speed +=  1
-	
+		
+		
 		target_speed *= WALK_SPEED
+		if !on_floor:
+			target_speed = target_speed /2
+		
 		
 		linear_vel.x = lerp(linear_vel.x, target_speed, ACCELERATION)
 		crounch = false
