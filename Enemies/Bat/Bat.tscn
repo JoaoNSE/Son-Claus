@@ -39,7 +39,7 @@ tracks/1/keys = {
 "values": [ Rect2( 0, 0, 32, 32 ), Rect2( 32, 0, 32, 32 ) ]
 }
 
-[node name="Bat" type="Area2D" index="0" groups=[
+[node name="Bat" type="Area2D" groups=[
 "Atacavel",
 ]]
 
