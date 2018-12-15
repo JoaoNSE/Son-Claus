@@ -86,7 +86,7 @@ tracks/5/keys = {
 } ]
 }
 
-[node name="Cutscene1" type="Node2D" index="0"]
+[node name="Cutscene1" type="Node2D"]
 
 position = Vector2( 448, 288 )
 script = ExtResource( 1 )
