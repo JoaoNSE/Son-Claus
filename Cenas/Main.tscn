@@ -303,7 +303,7 @@ autostart = false
 
 [node name="Bat" parent="." index="5" instance=ExtResource( 9 )]
 
-position = Vector2( 64, 448 )
+position = Vector2( 0, 448 )
 _sections_unfolded = [ "Transform" ]
 initial_pos = 0
 end_pos = 192

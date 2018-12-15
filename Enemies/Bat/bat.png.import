@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/batFlap-0.png-21e27d00c619028faf7644a2f49c1fb8.stex"
+path="res://.import/bat.png-3bdecf441f32560d3f63ff69cb3c7ccf.stex"
 
 [deps]
 
-source_file="res://Enemies/Bat/batFlap-0.png"
-dest_files=[ "res://.import/batFlap-0.png-21e27d00c619028faf7644a2f49c1fb8.stex" ]
+source_file="res://Enemies/Bat/bat.png"
+dest_files=[ "res://.import/bat.png-3bdecf441f32560d3f63ff69cb3c7ccf.stex" ]
 
 [params]
 

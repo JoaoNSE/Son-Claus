@@ -11,6 +11,7 @@ export(int) var pontos = 1
 
 var tempo = 0
 onready var base_y = position.y
+onready var death_p = preload("res://Enemies/DeathParticles.tscn")
 
 func _ready():
 	$Tween.interpolate_property(self, "position:x", initial_pos, end_pos, (end_pos-initial_pos)/speed,Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
@@ -26,18 +27,23 @@ func _process(delta):
 
 func _on_Tween_tween_completed(object, key):
 	$Tween2.interpolate_property(self, "position:x", initial_pos, end_pos, (end_pos-initial_pos)/speed,Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
-	$Sprite.flip_h = false
+	$Sprite.flip_h = true
 	$Tween2.start()
 
 
 func _on_Tween2_tween_completed(object, key):
-	$Sprite.flip_h = true
+	$Sprite.flip_h = false
 	$Tween.interpolate_property(self, "position:x", end_pos, initial_pos, (end_pos-initial_pos)/speed,Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 	$Tween.start()
 
 func dano():
 	gamestate.pontos += pontos
-	queue_free()
+	$Sprite.queue_free()
+	monitoring = false
+	$Tween.stop(self)
+	$Tween2.stop(self)
+	$Tween3.stop(self)
+	_emit_death_p()
 	
 func _on_Bat_body_entered(body):
 	if body.is_in_group("Player"):
@@ -47,3 +53,10 @@ func _on_Bat_body_entered(body):
 		if dir == 0:
 			dir = 1
 		body.knockBack(dir)
+		
+func _emit_death_p():
+	var temp_p = death_p.instance()
+	temp_p.position = Vector2(0, 0)
+	temp_p.emitting = true
+	temp_p.get_node("FootParticlesTimer").connect("timeout", self, "queue_free")                                                
+	add_child(temp_p)
