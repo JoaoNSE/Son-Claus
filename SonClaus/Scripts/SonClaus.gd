@@ -4,7 +4,7 @@ const GRAVITY_VEC = Vector2(0, 900)
 const FLOOR_NORMAL = Vector2(0, -1)
 const SLOPE_SLIDE_STOP = 25.0
 const MIN_ONAIR_TIME = 0.1
-const CAM_SWITCH_TIME = 0.5
+const CAM_SWITCH_TIME = 1.0
 const CAM_SMOOTH_SPEED = 10
 const WALK_SPEED = 500 # pixels/sec
 const ACCELERATION = 0.2
@@ -223,7 +223,7 @@ func to_left():
 	#mudar a camera
 	if !sprite.flip_h:
 		#$Pivot/CameraOffset.position = Vector2(0, 0)
-		cam_tween.interpolate_property($CameraOffset, "position", $CameraOffset.position, Vector2(-208, 0), CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, -208, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		cam_tween.start()                                                        
 	sprite.flip_h = true
 	arma.rotation = PI
@@ -237,7 +237,7 @@ func to_right():
 	#mudar a camera
 	if sprite.flip_h:
 		#$Pivot/CameraOffset.position = Vector2(0, 0)
-		cam_tween.interpolate_property($CameraOffset, "position", $CameraOffset.position, Vector2(208, 0), CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		cam_tween.interpolate_property($CameraOffset, "position:x", $CameraOffset.position.x, 208, CAM_SWITCH_TIME, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		cam_tween.start()
 		  
 		#cam_switching_time = 0
