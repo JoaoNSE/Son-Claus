@@ -21,6 +21,7 @@ const BULLET_VELOCITY = 1000
 const ATTACK_TIME_ANIM = 0.55
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 0.8
+
 const KNOCKBACK_DURATION = 2
 
 var linear_vel = Vector2()
