@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://House/Sprites/lareira-2.png" type="Texture" id=1]
+
+[node name="LareiraUp" type="Sprite"]
+
+modulate = Color( 1, 0.321569, 0.321569, 1 )
+position = Vector2( 896, -320 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 0, 64, 33 )
+_sections_unfolded = [ "Offset", "Region", "Visibility" ]
+
+

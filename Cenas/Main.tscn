@@ -58,6 +58,7 @@ position = Vector2( 832, 224 )
 "Mapa",
 ]]
 
+editor/display_folded = true
 position = Vector2( -736, 0 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
