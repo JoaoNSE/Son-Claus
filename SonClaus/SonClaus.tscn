@@ -1341,7 +1341,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Feet1" type="RayCast2D" parent="." index="7"]
 
-position = Vector2( 10, 28 )
+position = Vector2( 6, 28 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 5 )
@@ -1350,7 +1350,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Feet2" type="RayCast2D" parent="." index="8"]
 
-position = Vector2( -10, 28 )
+position = Vector2( -6, 28 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 5 )
